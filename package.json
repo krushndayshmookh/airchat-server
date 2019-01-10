@@ -1,0 +1,14 @@
+{
+  "name": "server-airchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "debug":"PORT=3000 nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Krushn Dayshmookh<krushndayshmookh@gmail.com>",
+  "license": "ISC"
+}
