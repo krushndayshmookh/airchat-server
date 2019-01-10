@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "debug":"PORT=3000 nodemon index.js",
+    "start": "node index.js",
+    "debug": "PORT=3000 nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Krushn Dayshmookh<krushndayshmookh@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.3",
+    "pug": "^2.0.3",
+    "socket.io": "^2.2.0"
+  }
 }
