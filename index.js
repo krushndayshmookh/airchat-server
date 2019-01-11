@@ -63,7 +63,7 @@ app.use(cors())
 
 // -----
 
-app.use(express.static('www'))
+app.use(express.static('public'))
 
 // -----
 
