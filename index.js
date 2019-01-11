@@ -9,7 +9,7 @@ var io = socketIO(server)
 /* ---------------------------------------------------- */
 
 var PORT = process.env.PORT || 3000
-var DBPORT = process.env.MONGODB_URI 
+var DBPORT = process.env.MONGODB_URI || 'mongodb://heroku_1r8j2qpn:vqtghhmnnv1t83qag4j9uqj5oa@ds153824.mlab.com:53824/heroku_1r8j2qpn'
 const routes = require('./routes.js')
 
 
