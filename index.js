@@ -103,6 +103,8 @@ app.get('/', (req, res) => {
 
 /* ---------------------------------------------------- */
 
+numUsers = 0;
+
 io.on('connection', socket => {
     var addedUser = false;
 
