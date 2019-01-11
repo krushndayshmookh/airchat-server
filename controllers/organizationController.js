@@ -9,7 +9,29 @@ exports.organization_detail_get = (req, res) => {
             res.send('No record found for id ' + req.params.id)
         }
     })
+}
 
+
+exports.organization_get = (req, res) => {
+    Organization.find({}, (err, result) => {
+        if (result) {
+            res.render('organization/index', {
+                organizations: result
+            })
+        } else {
+            res.send('No record found.')
+        }
+    })
+}
+
+exports.organizations_get = (req, res) => {
+    Organization.find({}, (err, result) => {
+        if (result) {
+            res.send(result)
+        } else {
+            res.send('No record found.')
+        }
+    })
 }
 
 exports.organization_create_post = (req, res) => {

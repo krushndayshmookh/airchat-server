@@ -48,8 +48,11 @@ router.post('/organization/create', organizationController.organization_create_p
 
 // GET request for one organization.
 router.get('/organization/:id', organizationController.organization_detail_get)
+// GET request for all organizations dashboard.
+router.get('/organization', organizationController.organization_get)
+// GET request for all organizations.
+router.get('/organizations', organizationController.organizations_get)
 
 
-
-//export this router to use in our index.js
+//export this router to use in our index.
 module.exports = router
