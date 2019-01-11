@@ -2,7 +2,7 @@ var Organization = require('../models/organization')
 
 
 exports.organization_detail_get = (req, res) => {
-    Organization.findById(req.params.id, (err, result) => {
+    Organization.findById(req.params.id).populate('suborgs').exec((err, result) => {
         if (err) return res.status(500).send(err)
 
         if (result) return res.send(result)
@@ -14,7 +14,7 @@ exports.organization_detail_get = (req, res) => {
 
 
 exports.organization_get = (req, res) => {
-    Organization.find({}, (err, result) => {
+    Organization.find({}).populate('suborgs').exec((err, result) => {
         if (err) return res.status(500).send(err)
 
         if (result) return res.render('organization/index', {
@@ -74,7 +74,7 @@ exports.organization_create_get = (req, res) => {
         if (result) res.render('organization/create', {
             organizations: result
         })
-        
+
         return res.send('No record found.')
 
     })
