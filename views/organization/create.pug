@@ -12,4 +12,9 @@ html(lang="en")
             label(for="location") Location
             input#location(type="text", name="location")
 
+            label(for="parent") Parent Organization
+            select#parent(name="parent")
+                each organization in organizations
+                    option(value=''+organization._id) #{organization.name}
+
             input(type="submit", value="Submit")

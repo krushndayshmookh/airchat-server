@@ -3,34 +3,37 @@ var Organization = require('../models/organization')
 
 exports.organization_detail_get = (req, res) => {
     Organization.findById(req.params.id, (err, result) => {
-        if (result) {
-            res.send(result)
-        } else {
-            res.send('No record found for id ' + req.params.id)
-        }
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send('No record found for id ' + req.params.id)
+
     })
 }
 
 
 exports.organization_get = (req, res) => {
     Organization.find({}, (err, result) => {
-        if (result) {
-            res.render('organization/index', {
-                organizations: result
-            })
-        } else {
-            res.send('No record found.')
-        }
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.render('organization/index', {
+            organizations: result
+        })
+
+        return res.send('No record found.')
+
     })
 }
 
 exports.organizations_get = (req, res) => {
     Organization.find({}, (err, result) => {
-        if (result) {
-            res.send(result)
-        } else {
-            res.send('No record found.')
-        }
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send('No record found.')
+
     })
 }
 
@@ -41,12 +44,39 @@ exports.organization_create_post = (req, res) => {
             name: req.body.location
         }
     })
-
     neworg.save()
 
-    res.send(neworg)
+    Organization.findById(req.body.parent, (err, oldorg) => {
+        if (err) return res.status(500).send(err)
+
+        oldorg.suborgs.push(neworg._id)
+
+        Organization.findByIdAndUpdate(oldorg._id, {
+            suborgs: oldorg.suborgs
+        }, {
+            new: true
+        }, (err, result) => {
+            if (err) return res.status(500).send(err)
+
+            return res.send({
+                new: neworg,
+                parent: result
+            })
+        })
+
+    })
 }
 
 exports.organization_create_get = (req, res) => {
-    res.render('organization/create')
+    Organization.find({}, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) res.render('organization/create', {
+            organizations: result
+        })
+        
+        return res.send('No record found.')
+
+    })
+    //- res.render('organization/create')
 }
