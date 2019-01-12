@@ -8,9 +8,17 @@ html(lang="en")
         h1 AirChat
         p Available routes:
         ul
-            li
-                a(href="/organization") /organization - List of all Organizations
-            li
-                a(href="/organization/create") /organization/create - Create new Organization 
+            li Organization
+                ul
+                    li
+                        a(href="/organization") /organization - List
+                    li
+                        a(href="/organization/create") /organization/create - Create
+            li User
+                ul
+                    li
+                        a(href="/user") /user - List
+                    li
+                        a(href="/user/create") /user/create - Create
         p
             a(href="/api") API Documentation
