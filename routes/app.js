@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
 // Data Routes -----
 
 // Require controller modules.
-var organizationController = require('./controllers/organizationController')
+var organizationController = require('../controllers/organizationController')
 
 
 
