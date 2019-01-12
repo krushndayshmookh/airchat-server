@@ -5,7 +5,7 @@ var router = express.Router()
 // User side pages -----
 
 router.get('/', (req, res) => {
-    res.render('index')
+    res.render('app/index')
 })
 
 // -----
