@@ -1,6 +1,6 @@
 var Organization = require('../models/organization')
 
-
+// API -----
 exports.organization_detail_get = (req, res) => {
     Organization.findById(req.params.id).populate('suborgs').exec((err, result) => {
         if (err) return res.status(500).send(err)
@@ -8,20 +8,6 @@ exports.organization_detail_get = (req, res) => {
         if (result) return res.send(result)
 
         return res.send('No record found for id ' + req.params.id)
-
-    })
-}
-
-
-exports.organization_get = (req, res) => {
-    Organization.find({}).populate('suborgs').exec((err, result) => {
-        if (err) return res.status(500).send(err)
-
-        if (result) return res.render('organization/index', {
-            organizations: result
-        })
-
-        return res.send('No record found.')
 
     })
 }
@@ -66,6 +52,25 @@ exports.organization_create_post = (req, res) => {
 
     })
 }
+
+
+
+
+// Application -----
+
+exports.organization_get = (req, res) => {
+    Organization.find({}).populate('suborgs').exec((err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.render('organization/index', {
+            organizations: result
+        })
+
+        return res.send('No record found.')
+
+    })
+}
+
 
 exports.organization_create_get = (req, res) => {
     Organization.find({}, (err, result) => {
