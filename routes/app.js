@@ -15,15 +15,23 @@ router.get('/', (req, res) => {
 // Require controller modules.
 var organizationController = require('../controllers/organizationController')
 
-
-
-
-
 // GET request for creating organization form.
 router.get('/organization/create', organizationController.organization_create_get)
 // GET request for all organizations dashboard.
 router.get('/organization', organizationController.organization_get)
 
+// -----
+
+
+var userController = require('../controllers/userController')
+
+// GET request for creating user form.
+router.get('/user/create', userController.user_create_get)
+// GET request for all users dashboard.
+router.get('/user', userController.user_get)
+
+
+// -----
 
 //export this router to use in our index.
 module.exports = router
