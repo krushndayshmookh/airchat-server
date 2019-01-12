@@ -8,9 +8,9 @@ html(lang="en")
         ul
             each organization in organizations
                 li 
-                    a(href="/organization/"+organization._id) #{organization.name} - #{organization.location.name}
+                    a(href="/api/organization/"+organization._id) #{organization.name} - #{organization.location.name}
                     ul
                         each suborg in organization.suborgs
                             li
-                                a(href="/organization/"+suborg._id) #{suborg.name} - #{suborg.location.name}
+                                a(href="/api/organization/"+suborg._id) #{suborg.name} - #{suborg.location.name}
 
