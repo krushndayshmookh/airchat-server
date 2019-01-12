@@ -1,0 +1,30 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Create User
+    body
+        form(action="/api/user/create", method="post")
+            
+            label(for="name") Name
+            input#name(type="text", name="name")
+
+            label(for="phone") Phone
+            input#phone(type="phone", name="phone")
+
+            label(for="username") Username
+            input#username(type="text", name="username")
+
+            label(for="password") Password
+            input#password(type="password", name="password")
+
+            label(for="position") Position
+            input#position(type="text", name="position")
+
+            label(for="organization") Organization
+            select#organization(name="organization")
+                each organization in organizations
+                    option(value=''+organization._id) #{organization.name}
+
+            input(type="submit", value="Submit")
