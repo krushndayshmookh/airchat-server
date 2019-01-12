@@ -76,7 +76,7 @@ exports.organization_create_get = (req, res) => {
     Organization.find({}, (err, result) => {
         if (err) return res.status(500).send(err)
 
-        if (result) res.render('app/organization/create', {
+        if (result) return res.render('app/organization/create', {
             organizations: result
         })
 
