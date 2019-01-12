@@ -62,7 +62,7 @@ exports.organization_get = (req, res) => {
     Organization.find({}).populate('suborgs').exec((err, result) => {
         if (err) return res.status(500).send(err)
 
-        if (result) return res.render('organization/index', {
+        if (result) return res.render('app/organization/index', {
             organizations: result
         })
 
@@ -76,7 +76,7 @@ exports.organization_create_get = (req, res) => {
     Organization.find({}, (err, result) => {
         if (err) return res.status(500).send(err)
 
-        if (result) res.render('organization/create', {
+        if (result) res.render('app/organization/create', {
             organizations: result
         })
 
