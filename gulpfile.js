@@ -3,7 +3,7 @@ const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
 
 function css() {
-  return src('src/sass/*.sass')
+  return src('src/scss/*.scss')
     .pipe(sass())
     .pipe(minifyCSS())
     .pipe(dest('public/css'))
