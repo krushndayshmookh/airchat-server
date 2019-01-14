@@ -25,7 +25,7 @@ Build the files using `yarn build`
 
 #### Debug
 
-Note: Before running the development server, install the dependencies and build the files atleast once by running `yarn install && yarn build`
+Note: Before running the development server, install the dependencies and build the files atleast once by running `yarn install`
 
 Start the Gulp Watcher using `gulp dev`
 

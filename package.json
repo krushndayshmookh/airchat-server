@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
+    "postinstall": "npm run build",
     "start": "node index.js",
     "debug": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
