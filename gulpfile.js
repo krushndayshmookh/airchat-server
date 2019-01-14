@@ -1,4 +1,4 @@
-const { src, dest, parallel } = require('gulp');
+const { src, dest, parallel, watch } = require('gulp');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
 
@@ -14,6 +14,11 @@ function css() {
         .pipe(dest('build/css'))
 }
 
+function devCss() {
+    watch('src/scss', parallel(css));
+}
+
 exports.static = static;
 exports.css = css;
+exports.devCss = devCss;
 exports.default = parallel(css);
