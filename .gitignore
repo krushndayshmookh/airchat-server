@@ -1,4 +1,5 @@
 node_modules
+build
 **/.directory
 **/._*
 **/.DS_Store
