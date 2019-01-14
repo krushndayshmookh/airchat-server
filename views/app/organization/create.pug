@@ -1,32 +1,16 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(href='https://fonts.googleapis.com/css?family=Lato:300', rel='stylesheet')
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')        
-        title Create Organization
+extend ../components/layout.pug
 
-    style.
-        *{
-            font-family: 'Lato', sans-serif;
-            background: #72B095;
-            color:white;
-        }
-        
-        #inputi{
-            border:none;
-            border-bottom: 1px solid white;            
-        }
-        .col.s12.m4{
-            height:33.33333%;
-        }
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
 
-    body(onload="animation()")
-    
-        //- //form(action="/api/organization/create", method="post")
+block title
+    title Create Organization | AirChat
+
+block content
+    body.sahil-teal
+
+        //- form(action="/api/organization/create", method="post")
         //-     label(for="name") Name
         //-     input#name(type="text", name="name")
 
@@ -40,30 +24,31 @@ html(lang="en")
 
         //-     input(type="submit", value="Submit")
 
-        .fullscreen.white-text
-            .row(style='margin:0px')
-                .col.l4
-                .col.s12.l4.center(style='margin-top:50px')
+        .white-text.container
+            .row
+                
+                .col.s12.l4.push-l4.center
                     img(src="/images/iconsvgwhite.svg", alt="", width="100")
 
-                    h1.bold
-                        | App Name
-                    h3.bold
-                        | Welcome
-                    .container
-                        .row.container(style='margin-top:10px')
-                            form.col.s12(action='//api/organization/create',method='POST')
-                                .row
-                                    .input-field.col.s12
-                                        input#inputi.validate(type='text', name='name', placeholder="Enter Name")
-                                        //- label(for='name') Name
+                    h1 Airchat
+                    h3 Create Organization
+            
+                    .row
+                        form.col.s12(action='/api/organization/create',method='POST')
+                            .row
+                                .input-field.col.s12
+                                    input#name.white-border.validate(type='text', name='name')
+                                    label.white-text(for="name") Name                                    
 
-                                    .input-field.col.s12
-                                        input#inputi.validate(type='text', name='location', placeholder="Location")
+                                .input-field.col.s12
+                                    input#location.white-border.validate(type='text', name='location')
+                                    label.white-text(for="location") Location
 
-                                    .input-field.col.s12
-                                        input#inputi.validate(type='text', name='parent', placeholder="Enter Parent Organization")
+                                .input-field.col.s12
+                                    select#parent.white-border.validate(type='text', name='parent')
+                                        each organization in organizations
+                                            option(value=''+organization._id) #{organization.name}
+                                    label.white-text(for="parent") Parent
 
-                                    .col.s12
-                                        button.btn.waves-effect.waves-light(type='submit', name='action', style="background:#DEDBA7")
-                                            | Submit
+                                .col.s12
+                                    button.btn.waves-effect.waves-light(type='submit', name='action') Submit
