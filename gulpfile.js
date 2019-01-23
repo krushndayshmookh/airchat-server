@@ -1,6 +1,11 @@
-const { src, dest, parallel, watch } = require('gulp');
+const { src, dest, parallel, watch, series } = require('gulp');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
+var del = require("del");
+
+function clean () {
+    return del(["build"]);
+}
 
 function static () {
     return src('public/**/*')
@@ -18,7 +23,8 @@ function devCss() {
     watch('src/scss', parallel(css));
 }
 
+exports.clean = clean;
 exports.static = static;
 exports.css = css;
 exports.devCss = devCss;
-exports.default = parallel(css);
+exports.default = series(clean, parallel(css));
