@@ -10,48 +10,30 @@ block title
     title Create Organization | AirChat
 
 block content
-    body.bg-page
 
-        //- form(action="/api/organization/create", method="post")
-        //-     label(for="name") Name
-        //-     input#name(type="text", name="name")
-
-        //-     label(for="location") Location
-        //-     input#location(type="text", name="location")
-
-        //-     label(for="parent") Parent Organization
-        //-     select#parent(name="parent")
-        //-         each organization in organizations
-        //-             option(value=''+organization._id) #{organization.name}
-
-        //-     input(type="submit", value="Submit")
-
-        .fg-primary
-            .row
+    .row
+        .col.s12.l4.push-l4
+            .card-panel.bg-primary
                 
-                .col.s12.l4.push-l4
-                    .card-panel.center.bg-primary
-                        img(src="/images/iconsvgwhite.svg", alt="", width="100")
-
-                        h3.light Airchat
-                        h5.light.fg-secondary Create Organization
-                
+                h3.light.center.fg-primary Airchat
+                h5.light.center.fg-secondary Create Organization
+        
+                .row
+                    form.col.s12(action='/api/organization/create',method='POST')
                         .row
-                            form.col.s12(action='/api/organization/create',method='POST')
-                                .row
-                                    .input-field.col.s12
-                                        input#name.white-border.validate(type='text', name='name')
-                                        label(for="name") Name                                    
+                            .input-field.col.s12
+                                input#name.white-border.validate(type='text', name='name')
+                                label(for="name") Name                                    
 
-                                    .input-field.col.s12
-                                        input#location.white-border.validate(type='text', name='location')
-                                        label(for="location") Location
+                            .input-field.col.s12
+                                input#location.white-border.validate(type='text', name='location')
+                                label(for="location") Location
 
-                                    .input-field.col.s12
-                                        select#parent.white-border.validate(type='text', name='parent')
-                                            each organization in organizations
-                                                option(value=''+organization._id) #{organization.name}
-                                        label(for="parent") Parent
+                            .input-field.col.s12
+                                select#parent.white-border.validate(type='text', name='parent')
+                                    each organization in organizations
+                                        option(value=''+organization._id) #{organization.name}
+                                label(for="parent") Parent
 
-                                    .col.s12
-                                        button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
+                            .col.s12.center
+                                button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
