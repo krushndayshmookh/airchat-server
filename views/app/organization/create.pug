@@ -2,13 +2,15 @@ extend ../components/layout.pug
 
 block styles
     link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/lib/dayshmookh.layout.css")
+    link(rel="stylesheet", href="/css/style.css")
     link(rel="stylesheet", href="/css/organization.css")
 
 block title
     title Create Organization | AirChat
 
 block content
-    body.sahil-teal
+    body.bg-page
 
         //- form(action="/api/organization/create", method="post")
         //-     label(for="name") Name
@@ -24,31 +26,32 @@ block content
 
         //-     input(type="submit", value="Submit")
 
-        .white-text.container
+        .fg-primary
             .row
                 
-                .col.s12.l4.push-l4.center
-                    img(src="/images/iconsvgwhite.svg", alt="", width="100")
+                .col.s12.l4.push-l4
+                    .card-panel.center.bg-primary
+                        img(src="/images/iconsvgwhite.svg", alt="", width="100")
 
-                    h1 Airchat
-                    h3 Create Organization
-            
-                    .row
-                        form.col.s12(action='/api/organization/create',method='POST')
-                            .row
-                                .input-field.col.s12
-                                    input#name.white-border.validate(type='text', name='name')
-                                    label.white-text(for="name") Name                                    
+                        h3.light Airchat
+                        h5.light.fg-secondary Create Organization
+                
+                        .row
+                            form.col.s12(action='/api/organization/create',method='POST')
+                                .row
+                                    .input-field.col.s12
+                                        input#name.white-border.validate(type='text', name='name')
+                                        label(for="name") Name                                    
 
-                                .input-field.col.s12
-                                    input#location.white-border.validate(type='text', name='location')
-                                    label.white-text(for="location") Location
+                                    .input-field.col.s12
+                                        input#location.white-border.validate(type='text', name='location')
+                                        label(for="location") Location
 
-                                .input-field.col.s12
-                                    select#parent.white-border.validate(type='text', name='parent')
-                                        each organization in organizations
-                                            option(value=''+organization._id) #{organization.name}
-                                    label.white-text(for="parent") Parent
+                                    .input-field.col.s12
+                                        select#parent.white-border.validate(type='text', name='parent')
+                                            each organization in organizations
+                                                option(value=''+organization._id) #{organization.name}
+                                        label(for="parent") Parent
 
-                                .col.s12
-                                    button.btn.waves-effect.waves-light(type='submit', name='action') Submit
+                                    .col.s12
+                                        button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit

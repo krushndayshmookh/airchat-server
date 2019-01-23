@@ -1,7 +1,14 @@
+@import 'theme';
 body {
     display: flex;
     flex-direction: column;
     main {
         flex: 1 0 auto;
     }
+}
+
+.btn-bordered {
+    box-sizing: content-box;
+    border: 1px solid #aaaaaa80;
+    margin-right: 5px;
 }

@@ -1,0 +1,40 @@
+// Ankita's Palette
+$bg-primary: #14164c;
+$bg-secondary: #024882;
+$bg-page: #0d112b;
+$fg-primary: #ede1e1;
+$fg-secondary: #6fb7db;
+
+// Hybrid Palette
+// $bg-primary: #132442;
+// $bg-secondary: #024882;
+// $bg-page: #0d112b;
+// $fg-primary: #ede1e1;
+// $fg-secondary: #8aaaaa;
+
+// Krushn's Palette
+// $bg-primary: #132442;
+// $bg-secondary: #1b3d59;
+// $bg-page: #0d112b;
+// $fg-primary: #e1e1ed;
+// $fg-secondary: #8aaaaa;
+
+.bg-primary {
+    background: $bg-primary;
+}
+
+.bg-secondary {
+    background: $bg-secondary;
+}
+
+.bg-page {
+    background: $bg-page;
+}
+
+.fg-primary {
+    color: $fg-primary;
+}
+
+.fg-secondary {
+    color: $fg-secondary;
+}
