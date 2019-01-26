@@ -24,6 +24,9 @@ router.get('/organization/:id', organizationController.organization_detail_get)
 // GET request for all organizations.
 router.get('/organizations', organizationController.organizations_get)
 
+// GET request for delete all organizations.
+router.get('/organizations/delete/all', organizationController.orgnizations_delete_all_get)
+
 // -----
 
 

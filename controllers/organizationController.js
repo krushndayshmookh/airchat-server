@@ -29,15 +29,17 @@ exports.organization_create_post = (req, res) => {
         location: {
             name: req.body.location
         },
+        root: (req.body.root == 'on') ? true : false
 
     })
 
-    if (!(req.body.root=='checked')) {
-        neworg.parent = req.body.parent
-        neworg.root = false
-    }
+    console.log(req.body)
+    console.log(neworg)
 
-    neworg.save()
+    if (neworg.root) {
+        neworg.save()
+        return res.send(neworg)
+    }
 
     Organization.findById(req.body.parent, (err, oldorg) => {
         if (err) return res.status(500).send(err)
@@ -51,6 +53,7 @@ exports.organization_create_post = (req, res) => {
         }, (err, result) => {
             if (err) return res.status(500).send(err)
 
+            neworg.save()
             return res.send({
                 new: neworg,
                 parent: result
@@ -58,9 +61,24 @@ exports.organization_create_post = (req, res) => {
         })
 
     })
+
 }
 
 
+
+
+
+
+exports.orgnizations_delete_all_get = (req, res) => {
+    Organization.remove({}, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
 
 
 // Application -----
