@@ -25,10 +25,10 @@ Build the files using `yarn build`
 
 #### Debug
 
+Make sure you have `yarn`, `nodemon` and `gulp` installed.
+
 Note: Before running the development server, install the dependencies and build the files atleast once by running `yarn install`
 
-Start the Gulp Watcher using `gulp dev`
-
-Run the development server using `yarn debug`
+Run the development server and Gulp watcher using `yarn debug`
 
 You can now visit the application at [`localhost:3000`](http://localhost:3000)

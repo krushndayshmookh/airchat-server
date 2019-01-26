@@ -19,12 +19,12 @@ function css() {
         .pipe(dest('build/css'))
 }
 
-function devCss() {
+function dev() {
     watch('src/scss', parallel(css));
 }
 
 exports.clean = clean;
 exports.static = static;
 exports.css = css;
-exports.devCss = devCss;
+exports.dev = parallel(dev);
 exports.default = series(clean, parallel(css));
