@@ -1,30 +1,50 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Create User
-    body
-        form(action="/api/user/create", method="post")
-            
-            label(for="name") Name
-            input#name(type="text", name="name")
+extend ../components/layout.pug
 
-            label(for="phone") Phone
-            input#phone(type="phone", name="phone")
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
 
-            label(for="username") Username
-            input#username(type="text", name="username")
+block title
+    title Create User | AirChat
 
-            label(for="password") Password
-            input#password(type="password", name="password")
+block content
 
-            label(for="position") Position
-            input#position(type="text", name="position")
+    .row
+        .col.s12.l4.push-l4
+            .card-panel
+                
+                h3.light.center Airchat
+                h5.light.center Create User
+        
+                .row
+                    form.col.s12(action="/api/user/create", method="post")
+                        .row
+                            .input-field.col.s12
+                                label(for="name") Name
+                                input#name(type="text", name="name")
 
-            label(for="organization") Organization
-            select#organization(name="organization")
-                each organization in organizations
-                    option(value=''+organization._id) #{organization.name}
+                            .input-field.col.s12
+                                label(for="phone") Phone
+                                input#phone(type="number", name="phone")
 
-            input(type="submit", value="Submit")
+                            .input-field.col.s12
+                                label(for="username") Username
+                                input#username(type="text", name="username")
+
+                            .input-field.col.s12
+                                label(for="password") Password
+                                input#password(type="password", name="password")
+
+                            .input-field.col.s12
+                                label(for="position") Position
+                                input#position(type="text", name="position")
+
+                            .input-field.col.s12
+                                select#organization(name="organization")
+                                    each organization in organizations
+                                        option(value=''+organization._id) #{organization.name}
+                                label Organization
+                                
+
+                            .col.s12.center
+                                button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
