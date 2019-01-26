@@ -1,0 +1,26 @@
+extend ../components/layout.pug
+
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
+
+block title
+    title Manage Organization | AirChat
+
+block content
+    .row
+        .col.s4
+            p.heading Main blah
+                i.material-icons.left chevron_left 
+            .collection 
+                a.collection-item(href="#") blah
+                a.collection-item(href="#") blah
+                a.collection-item(href="#") blah
+                a.collection-item(href="#") blah
+        
+        .col.s8
+            a.btn.red(href="#") Delete
+                i.material-icons.left close
+            .card-panel
+                h3 blah blah
+    

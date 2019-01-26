@@ -7,6 +7,9 @@ var router = express.Router()
 router.get('/', (req, res) => {
     res.render('app/index')
 })
+router.get('/organization/manage', (req, res) => {
+    res.render('app/organization/manage')
+})
 
 
 
