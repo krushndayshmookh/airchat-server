@@ -28,8 +28,15 @@ exports.organization_create_post = (req, res) => {
         name: req.body.name,
         location: {
             name: req.body.location
-        }
+        },
+
     })
+
+    if (!(req.body.root=='checked')) {
+        neworg.parent = req.body.parent
+        neworg.root = false
+    }
+
     neworg.save()
 
     Organization.findById(req.body.parent, (err, oldorg) => {

@@ -18,6 +18,14 @@ var organizationSchema = new Schema({
             }
         }
     },
+    parent: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization'
+    },
+    root: {
+        type: Boolean,
+        default: true
+    },
     suborgs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Organization'

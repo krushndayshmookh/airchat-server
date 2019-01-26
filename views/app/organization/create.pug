@@ -27,6 +27,10 @@ block content
                                 input#location.white-border.validate(type='text', name='location')
                                 label(for="location") Location
 
+                            p
+                                label
+                                    input(type="checkbox", name='root')
+                                    span Root Organization?
                             .input-field.col.s12
                                 select#parent.white-border.validate(type='text', name='parent')
                                     each organization in organizations
