@@ -1,4 +1,5 @@
 var Organization = require('../models/organization')
+var User = require('../models/user')
 
 // API -----
 exports.organization_detail_get = (req, res) => {
@@ -83,6 +84,19 @@ exports.organizations_delete_all_get = (req, res) => {
 
 exports.organization_delete_post = (req, res) => {
     Organization.findByIdAndRemove(req.params.id, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
+
+exports.organization_members_get = (req, res) => {
+    User.find({
+        organization: req.params.id
+    }, (err, result) => {
         if (err) return res.status(500).send(err)
 
         if (result) return res.send(result)
