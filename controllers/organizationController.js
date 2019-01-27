@@ -69,8 +69,20 @@ exports.organization_create_post = (req, res) => {
 
 
 
-exports.orgnizations_delete_all_get = (req, res) => {
+exports.organizations_delete_all_get = (req, res) => {
     Organization.remove({}, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
+
+
+exports.organization_delete_post = (req, res) => {
+    Organization.findByIdAndRemove(req.params.id, (err, result) => {
         if (err) return res.status(500).send(err)
 
         if (result) return res.send(result)
