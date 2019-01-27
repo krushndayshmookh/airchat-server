@@ -9,6 +9,23 @@ html(lang="en")
         h2 Documentation
         p To be updated soon.
 
+        h3 Organization
+
         ul
             li
-                a(href="/api/organizations/delete/all", style="color:red") Delete All Organizations
+                a(href="/api/organization/create") "/api/organization/create" - POST - Organization create
+
+            
+            li
+                a(href="/api/organization/:id") "/api/organization/:id" - GET - Organization details
+
+            
+            li
+                a(href="/api/organization/:id/delete", style="color:red") "/api/organization/:id/delete" - POST - Organization
+
+            
+            li
+                a(href="/api/organizations") "/api/organizations" - GET - Organization list
+
+            li
+                a(href="/api/organizations/delete/all", style="color:red") "/api/organizations/delete/all" - GET - Delete All Organizations
