@@ -11,12 +11,15 @@ block content
     section.section
         .row
             .col.s12
-                h5 Main > Blah > Some > more
+                a.breadcrumb.teal-text(href="#") Hello
+                a.breadcrumb.teal-text(href="#") Hello
+                a.breadcrumb.teal-text(href="#") Hello
+                a.breadcrumb.teal-text(href="#") Hello
                     //- i.material-icons.left chevron_left 
             
             .col.s3
                 .collection
-                    a.collection-item(href="#") Add
+                    a.collection-item(href="#") Create
                         i.material-icons.left add
                     a.collection-item(href="#") blah
                     a.collection-item(href="#") blah
@@ -35,17 +38,61 @@ block content
             
                                                         
                 .card-panel
-                    h4 Organization Details
+                    h4 Organization name
                         .right
-                            a
-                                i.material-icons.margin-right-compact edit
-                            a
-                                i.material-icons.red-text delete
-                        .row
-                            h5 Name
-                            .divider
-                            h5 Location
-                            .divider      
+                            a.btn-floating.margin-right-compact
+                                i.material-icons edit
+                            a.btn-floating.red
+                                i.material-icons delete
+                             
+
+
+                        //- .fixed-action-btn
+                        //-     a.btn-floating.btn-large.red
+                        //-         i.large.material-icons mode_edit
+                        //-     ul
+                        //-         li
+                        //-             a.btn-floating.red
+                        //-                 i.material-icons insert_chart
+                        //-         li
+                        //-             a.btn-floating.yellow.darken-1
+                        //-                 i.material-icons format_quote
+                        //-         li
+                        //-             a.btn-floating.green
+                        //-                 i.material-icons publish
+                        //-         li
+                        //-             a.btn-floating.blue
+                        //-                 i.material-icons attach_file
+
+                   
+                    
+                    h5 Location
+                    .divider
+                    h5 Head  
+                    .divider
+                    h5 Members
+                         .collection
+                            a.collection-item(href="#") Add Member
+                                i.material-icons.left add
+                            .collection-item(href="#") blah
+                                a.right.dropdown-trigger(href="#" data-target="drop1")
+                                    i.material-icons more_vert
+                                ul#drop1.dropdown-content
+                                    li
+                                        a(href="#") Delete
+                                    li
+                                        a(href="#") Make Admin
+                                    li
+                                        a(href="#") View    
+                            .collection-item(href="#") blah
+                                a.right.dropdown-trigger(href="#" data-target="drop1")
+                                    i.material-icons more_vert
+                            .collection-item(href="#") blah
+                                a.right.dropdown-trigger(href="#" data-target="drop1")
+                                    i.material-icons more_vert
+                            .collection-item(href="#") blah
+                                a.right.dropdown-trigger(href="#" data-target="drop1")
+                                    i.material-icons more_vert
 
             
                 //- .row
@@ -59,5 +106,6 @@ block content
 
                         //- .btn.margin-right-compact add  
                         //-     i.material-icons.left add
-
+block scripts
+    script(src="/js/init/user/manage.js")
             
