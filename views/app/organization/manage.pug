@@ -8,47 +8,56 @@ block title
     title Manage Organization | AirChat
 
 block content
-    .row
-        .col.s4
-              h5 Main blah
-                i.material-icons.left chevron_left 
+    section.section
+        .row
+            .col.s12
+                h5 Main > Blah > Some > more
+                    //- i.material-icons.left chevron_left 
             
-        .col.s8
-            .btn.margin-right-compact edit
-                i.material-icons.left edit  
-                
-            .btn.margin-right-compact.red delete 
-                i.material-icons.left close
-
-            .btn.margin-right-compact add  
-                i.material-icons.left add
+            .col.s3
+                .collection
+                    a.collection-item(href="#") Add
+                        i.material-icons.left add
+                    a.collection-item(href="#") blah
+                    a.collection-item(href="#") blah
+                    a.collection-item(href="#") blah
+                    a.collection-item(href="#") blah
     
-        .col.s4
-          
-            .collection 
-                a.collection-item(href="#") blah
-                a.collection-item(href="#") blah
-                a.collection-item(href="#") blah
-                a.collection-item(href="#") blah
-                a.collection-item(href="#") blah
-        
-        .col.s8
-            //.row
-                .col.s12.padded-top-cozy
-                    a.btn.red(href="#") Delete
-                        i.material-icons.left close  
-                    a.btn.red(href="#") Delete
-                        i.material-icons.left close 
-           
-                                                      
-            .card-panel
-                h4 Organization Details
-                    .row
-                        h5 Name
-                        .divider
-                        h5 Location
-                        .divider      
 
+            
+            .col.s9
+                //.row
+                    .col.s12.padded-top-cozy
+                        a.btn.red(href="#") Delete
+                            i.material-icons.left close  
+                        a.btn.red(href="#") Delete
+                            i.material-icons.left close 
+            
+                                                        
+                .card-panel
+                    h4 Organization Details
+                        .right
+                            a
+                                i.material-icons.margin-right-compact edit
+                            a
+                                i.material-icons.red-text delete
+                        .row
+                            h5 Name
+                            .divider
+                            h5 Location
+                            .divider      
 
+            
+                //- .row
+                //-     .col.s12
+                //-         .btn.margin-right-compact edit
+                //-             i.material-icons.left edit  
+                            
+                //-     .col.s12
+                //-         .btn.margin-right-compact.red delete 
+                //-             i.material-icons.left close
 
-        
+                        //- .btn.margin-right-compact add  
+                        //-     i.material-icons.left add
+
+            
