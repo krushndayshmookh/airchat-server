@@ -10,17 +10,45 @@ block title
 block content
     .row
         .col.s4
-            p.heading Main blah
+              h5 Main blah
                 i.material-icons.left chevron_left 
+            
+        .col.s8
+            .btn.margin-right-compact edit
+                i.material-icons.left edit  
+                
+            .btn.margin-right-compact.red delete 
+                i.material-icons.left close
+
+            .btn.margin-right-compact add  
+                i.material-icons.left add
+    
+        .col.s4
+          
             .collection 
+                a.collection-item(href="#") blah
                 a.collection-item(href="#") blah
                 a.collection-item(href="#") blah
                 a.collection-item(href="#") blah
                 a.collection-item(href="#") blah
         
         .col.s8
-            a.btn.red(href="#") Delete
-                i.material-icons.left close
+            //.row
+                .col.s12.padded-top-cozy
+                    a.btn.red(href="#") Delete
+                        i.material-icons.left close  
+                    a.btn.red(href="#") Delete
+                        i.material-icons.left close 
+           
+                                                      
             .card-panel
-                h3 blah blah
-    
+                h4 Organization Details
+                    .row
+                        h5 Name
+                        .divider
+                        h5 Location
+                        .divider      
+
+
+
+        
