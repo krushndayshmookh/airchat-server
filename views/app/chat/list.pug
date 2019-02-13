@@ -1,0 +1,70 @@
+extend ../components/layout.pug
+
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
+    link(rel="stylesheet", href="/css/chat.css")
+
+block title
+    title Conversations | AirChat
+
+block content
+    div.collection
+        a.collection-item.avatar(href="#!")
+            img.circle(src="/images/yuna.jpg" alt="")
+            span.title.full-width Title
+                span.right.grey-text.msg-status 22:00
+                    i.material-icons.tiny.left done
+            p.grey-text last message
+                
+            
+        a.collection-item.avatar(href="#!")
+            i.material-icons.circle.green person
+            span.title.full-width Title
+                span.right.grey-text.msg-status 21:00
+                    i.material-icons.tiny.left done_all
+            p.grey-text last message
+                
+            
+        a.collection-item.avatar(href="#!")
+            img.circle(src="/images/yuna.jpg" alt="")
+            span.title.full-width Title
+                span.right.grey-text.msg-status 20:30
+                    i.material-icons.tiny.left done_all
+            p.grey-text last message
+                
+            
+        a.collection-item.avatar(href="#!")
+            i.material-icons.circle.green person
+            span.title.full-width Title
+                span.right.grey-text.msg-status 20:00
+                    i.material-icons.tiny.left done
+            p.grey-text last message
+                
+                
+    //- .fixed-action-btn(style="bottom: 45px; right: 24px;")
+    .fixed-action-btn
+        a.btn-floating.btn-large.blue
+            i.large.material-icons add
+        ul
+            li
+                // add span with .mobile-fab-tip here after the <li> tag...
+                span.mobile-fab-tip Conversation
+                // ...and before the <a> tag
+                a.btn-floating.yellow.darken-1(href="#!")
+                    i.material-icons person
+            //- li
+                span.mobile-fab-tip Channel
+                a.btn-floating.yellow.darken-1(href="#!")
+                    i.material-icons reply_all
+            li
+                span.mobile-fab-tip Group
+                a.btn-floating.red(href="#!")
+                    i.material-icons group
+            li
+                span.mobile-fab-tip Secret Chat
+                a.btn-floating.green(href="#!")
+                    i.material-icons lock
+
+block scripts
+    script(src="/js/init/user/chats.js")
