@@ -19,6 +19,16 @@
 
 ### Instructions
 
+##To do list
+* [ ] Register User
+* [ ] Register organization
+* [ ] Register User
+* [ ] Chats and org. screen
+* [ ] Contacts
+* [ ] Chat screen
+* [ ] Organization screen
+* [ ] Settings 
+
 #### Build
 
 Build the files using `yarn build`
@@ -32,3 +42,6 @@ Note: Before running the development server, install the dependencies and build 
 Run the development server and Gulp watcher using `yarn debug`
 
 You can now visit the application at [`localhost:3000`](http://localhost:3000)
+
+
+
