@@ -33,7 +33,7 @@ Run the development server and Gulp watcher using `yarn debug`
 
 You can now visit the application at [`localhost:3000`](http://localhost:3000)
 
-##To do list
+### To do list
 * [ ] Register User
 * [ ] Register organization
 * [ ] Register User
