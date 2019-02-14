@@ -1,0 +1,33 @@
+extend ../components/layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/chat.css")
+
+block title
+    title Conversations | AirChat
+
+block content
+    .messages
+        ul
+            li.message.from.right-align
+                span.blue.white-text hello
+            li.message.to
+                span.grey.lighten-3 hellohellohello
+            li.message.from.right-align
+                span.blue.white-text hellohello
+            li.message.from.right-align
+                span.blue.white-text hellohellohellohello
+            li.message.to
+                span.grey.lighten-3 hellohello
+            li.message.to
+                span.grey.lighten-3 hello
+    
+    .message-input.full-width.grey.lighten-2.no-margin.valign-wrapper
+        i.material-icons.margined-tiny face
+        .input-field.no-margin
+            input.no-border(type='text')
+        i.material-icons.margined-tiny attachment
+        i.material-icons.margined-tiny send
+
+block scripts
+    script(src="/js/init/user/chat.js")

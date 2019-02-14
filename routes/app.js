@@ -38,6 +38,10 @@ router.get('/user/chats', (req, res) => {
 	res.render('app/chat/list')
 })
 
+router.get('/user/chat', (req, res) => {
+	res.render('app/chat/chat')
+})
+
 // -----
 
 //export this router to use in our index.
