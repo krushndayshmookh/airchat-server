@@ -1,0 +1,33 @@
+extend ../components/layout.pug
+
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
+
+block title
+    title Login | AirChat
+
+block content
+
+    .row
+        .col.s12.l4.push-l4
+            .card-panel
+                
+                h3.light.center Airchat
+                h5.light.center Login
+        
+                .row
+                    form.col.s12(action="/api/user/create", method="post")
+                        .row
+                            .input-field.col.s12
+                                label(for="phone or username") Phone or Username
+                                input#phone(type="text", name="phone or username")
+
+                            .input-field.col.s12
+                                label(for="password") Password
+                                input#password(type="password", name="password")
+
+                           
+
+                            .col.s12.center
+                                button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
