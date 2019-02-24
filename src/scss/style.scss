@@ -13,6 +13,18 @@ body {
     margin-right: 5px;
 }
 
-.margin-right-compact{
+.margin-right-compact {
     margin-right: 5px;
+}
+
+.collection .collection-item.avatar {
+    min-height: initial;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.margined-tiny {
+    margin: 8px;
 }
