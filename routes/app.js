@@ -6,10 +6,16 @@ var router = express.Router()
 router.get('/', (req, res) => {
 	res.render('app/index')
 })
+router.get('/settings', (req, res) => {
+	res.render('app/settings')
+})
 router.get('/organization/manage', (req, res) => {
 	res.render('app/organization/manage')
 })
 
+router.get('/organization/profile', (req, res) => {
+	res.render('app/organization/profile')
+})
 // -----
 
 // Data Routes -----
@@ -40,6 +46,10 @@ router.get('/user/chats', (req, res) => {
 
 router.get('/user/chat', (req, res) => {
 	res.render('app/chat/chat')
+})
+
+router.get('/user/profile', (req, res) => {
+	res.render('app/user/profile')
 })
 
 // -----
