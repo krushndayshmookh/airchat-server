@@ -8,15 +8,25 @@ block title
     title User Profile | AirChat
 
 block content
-
-    .row
-        .col.s12
-            
-        
+    //- .row
+        .col.s11
             h5.center Profile 
                     i.material-icons.left arrow_back
 
-    .row
-        .col.s12.l4.push-l4
-            .card-panel.center
-                img.circle(src="/images/yuna.jpg" alt="")
+    section.container.grey.lighten-4.padded-top-cozy
+        .row                                                                                                 
+            .col.s12.l4.push-l4
+                .card-panel.center.rounded-no-hide
+                    i.material-icons.left chat
+                    img.circle.top-margin-reduce(src="/images/yuna.jpg" alt="",href="/css/image.css" )
+                    i.material-icons.right more_vert
+
+
+                    h4.center.grey-text.light Name
+                    h5.center.grey-text Username
+                    h5.center.grey-text Number
+        .row
+            h5.left Media            
+
+
+                   
