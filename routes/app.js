@@ -51,6 +51,14 @@ router.get('/user/chat', (req, res) => {
 router.get('/user/profile', (req, res) => {
 	res.render('app/user/profile')
 })
+//Auth routes
+router.get('/login', (req, res) => {
+	res.render('app/auth/login_user')
+})
+
+router.get('/signup', (req, res) => {
+	res.render('app/auth/signup')
+})
 
 // -----
 
