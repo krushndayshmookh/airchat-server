@@ -1,17 +1,17 @@
 {
   "name": "airchat-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "* `node`\r * `yarn`\r * `gulp`",
   "main": "index.js",
   "scripts": {
     "build": "gulp",
     "postinstall": "npm run build",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "debug": "concurrently --kill-others \"gulp dev\" \"nodemon index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Krushn Dayshmookh<krushndayshmookh@gmail.com>",
+  "author": "Krushn Dayshmookh <krushndayshmookh@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -27,5 +27,13 @@
     "gulp": "^4.0.0",
     "gulp-csso": "^3.0.1",
     "gulp-sass": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/root-kings/airchat-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/root-kings/airchat-server/issues"
+  },
+  "homepage": "https://github.com/root-kings/airchat-server#readme"
 }
