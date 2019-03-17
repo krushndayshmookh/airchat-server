@@ -1,32 +1,89 @@
-extend ../components/layout.pug
-
-block styles
-    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
-    link(rel="stylesheet", href="/css/organization.css")
-
-block title
-    title User Profile | AirChat
-
-block content
-    //- .row
-        .col.s11
-            h5.center Profile 
-                    i.material-icons.left arrow_back
-
-    section.container.grey.lighten-4.padded-top-cozy
-        .row                                                                                                 
-            .col.s12.l4.push-l4
-                .card-panel.center.rounded-no-hide
-                    i.material-icons.left chat
-                    img.circle.top-margin-reduce(src="/images/yuna.jpg" alt="",href="/css/image.css" )
-                    i.material-icons.right more_vert
-
-
-                    h4.center.grey-text.light Name
-                    h5.center.grey-text Username
-                    h5.center.grey-text Number
-        .row
-            h5.left Media            
-
-
-                   
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Profile
+    // Compiled and minified CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    // CSS
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection")
+    link(href="css/lib/airchat_org_description.css" type="text/css" rel="stylesheet" media="screen,projection")
+  body
+    .navbar-fixed(style="z-index:999;")
+      nav.teal
+        .container(style="width:95%;")
+          .nav-wrapper
+            a.brand-logo(href="#!") Airchat
+            a.sidenav-trigger(href="#" data-target="mobile-mode")
+              i.material-icons menu
+            ul.right.hide-on-med-and-down
+              li
+                a(href="#!") Home
+              li
+                a(href="#!") Contact
+              li
+                a(href="#!") Profile
+              li
+                a(href="#!") Log out
+      ul#mobile-mode.sidenav
+        li
+          a(href="#!") Home
+        li
+          a(href="#!") Contact
+        li
+          a(href="#!") Profile
+        li
+          a(href="#!") Log out
+    .row(style="text-align:center;")
+      .col.s4.l4
+      .col.s4.l4
+        h3(style="border-bottom: 2px solid teal;color:#01061b; ") Other User's Info
+      .col.s4.l4
+    .row
+      .col.s12.l4
+        // free space
+      .col.s12.l4
+        .card(style="text-align:center;margin-top: 50px;background:#01061b;border-radius: 5px;")
+          .profile_pic(style="margin-bottom:20px;")
+            img.circle(src="img_avatar3.png" alt="profile_pic" width="75px" height="75px" style="border: 2px solid rgb(255, 255, 255);margin-top:-30px;margin-bottom: 10px;")
+          .row
+            .col.s4.l4(style="text-align:right;")
+              .f_name_ctn(style="margin-bottom:20px;")
+                label.teal-text(for="f_name" style="font-size:15px;") First Name :
+              .l_name_ctn(style="margin-bottom:20px;")
+                label.teal-text(for="l_name" style="font-size:15px;") Last Name :
+              .occ_ctn(style="margin-bottom:20px;")
+                label.teal-text(for="occupation" style="font-size:15px;") Occupation :
+              .tel_ctn(style="margin-bottom:20px;")
+                label.teal-text(for="phone_no" style="font-size:15px;") Phone No. :
+              .email_ctn(style="margin-bottom:20px;")
+                label.teal-text(for="emal" style="font-size:15px;") Email :
+            .col.s8.l8(style="text-align:left;")
+              .f_name_ctn_right(style="margin-bottom:20px;")
+                label.white-text(for="f_name" style="font-size:15px;") Participant
+              .l_name_ctn_right(style="margin-bottom:20px;")
+                label.white-text(for="l_name" style="font-size:15px;") Lastname
+              .occ_ctn_right(style="margin-bottom:20px;")
+                label.white-text(for="occupation" style="font-size:15px;") Occupation
+              .tel_ctn_right(style="margin-bottom:20px;")
+                label.white-text(for="phone_no" style="font-size:15px;") +91-9876543210
+              .email_ctn_right(style="margin-bottom:20px;")
+                label.white-text(for="emal" style="font-size:15px;") email@gmail.com
+        // send btn
+        .row(style="text-align:center;")
+          a.btn(href="#!" style="color:#01061b;width:95%;margin-bottom:10px;font-size:14px;font-weight:600;") send message
+      .col.s12.l4
+        // free space
+    // Scripts
+    // Compiled and minified JavaScript
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+    script.
+      //with jQuery
+      $(document).ready(function () {
+      $('.sidenav').sidenav();
+      });

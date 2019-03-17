@@ -1,0 +1,39 @@
+nav .container{
+    width: 95%;
+}
+.card{
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+#org_name{
+    display: block;
+    margin-bottom:15px;
+}
+#org_heading{
+    border-bottom: 2px solid rgb(6, 134, 134);
+    width: auto;
+}
+.creator{
+    padding: 3px 6px 4px 6px;
+    background: rgb(1, 6, 27);
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+#participants{
+    font-size: 13px;
+}
+#user_img{
+    width:40px;
+    height:40px;
+}
+.collection-item{
+    padding-top: 20px !important;
+    padding-bottom: 10px !important;
+}
+.dropdown-content{
+   width: max-content !important;
+   height:auto !important;
+}
