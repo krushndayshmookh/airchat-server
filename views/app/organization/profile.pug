@@ -1,0 +1,32 @@
+extend ../components/layout.pug
+
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
+
+block title
+    title User Profile | AirChat
+
+block content
+    //- .row
+        .col.s11
+            h5.center Profile 
+                    i.material-icons.left arrow_back
+
+    section.container.grey.lighten-4.padded-top-cozy
+        .row                                                                                                    
+            .col.s12.l4.push-l4
+                .card-panel.center.rounded-no-hide
+                    i.material-icons.left chat
+                    img.circle.top-margin-reduce(src="/images/yuna.jpg" alt="",href="/css/image.css" )
+                    i.material-icons.right more_vert
+
+
+                    h4.center.grey-text.light Group Name
+                    p.center.grey-text.light Members
+                    h5.center.grey-text Description
+        .row
+            h5.left.grey-text.light Media            
+
+
+                   
