@@ -1,0 +1,70 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Signup here
+    // Compiled and minified CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    // CSS
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection")
+    link(href="css/lib/airchat_signup.css" type="text/css" rel="stylesheet" media="screen,projection")
+  body
+    nav.teal
+      .container
+        .nav-wrapper
+          a.brand-logo(href="#!") Airchat
+          ul.right.hide-on-small-only
+            li
+              a.btn.login_btn_nav(href="airchat_login_pg.pug") log in
+    .container.sig_form_ctn
+      .row
+        .col.s12.m12.l4
+          // Free space
+        .col.s12.m12.l4
+          .form_ctn
+            .row.white-text.form_head
+              .col.s12
+                h3 Airchat
+            form(action="#!")
+              .row
+                .input-field.col.s6
+                  input#f_name.validate(type="text")
+                  label(for="first_name") First Name
+                .input-field.col.s6
+                  input#f_name.validate(type="text")
+                  label(for="last_name") Last Name
+              .row
+                .input-field.col.s12
+                  input#user_name(type="text")
+                  label(for="user-name") User Name
+              .row
+                .input-field.col.s12
+                  input#email(type="email")
+                  label(for="email") Email
+              .row
+                .input-field.col.s12
+                  input#pas_wrd(type="password")
+                  label(for="password") Password
+              .row
+                .input-field.col.s12
+                  input#cnf_pas(type="password")
+                  label(for="confirm_password") Confirm Password
+              // buttons
+              .row.btn_ctn
+                input.btn.signup_btn(type="submit" value="Sign Up")
+                span.or_div -OR-
+                a.btn.login_btn(href="airchat_login_pg.pug") Log In
+        .col.s12.m12.l4
+          // Free space
+    // Scripts
+    // Compiled and minified JavaScript
+    script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="js/materialize.js")
+    script(src="js/init.js")

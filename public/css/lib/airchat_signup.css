@@ -1,0 +1,94 @@
+nav .container{
+    width: 95%;
+}
+/*form container*/
+.sig_form_ctn{
+    width: 95%;
+}
+
+.form_head{
+    text-align: center;
+}
+
+
+input[type="text"] + label {
+    pointer-events: none;
+
+    * {
+        pointer-events: all;
+    }
+}
+
+
+input[type="email"] + label {
+    pointer-events: none;
+
+    * {
+        pointer-events: all;
+    }
+}
+
+
+input[type="password"] + label {
+    pointer-events: none;
+
+    * {
+        pointer-events: all;
+    }
+}
+
+.btn_ctn{
+    text-align: center;
+}
+
+.or_div{
+    display: block;
+    color: gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.signup_btn , .login_btn{
+    width: 60%;
+    background-color: rgb(1, 6, 27);
+}
+
+form .row{
+    margin: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+input[type="text"],input[type="email"],input[type="password"]{
+    padding-top:0px !important;
+    padding-bottom: 0px !important;
+    margin:0px !important;
+}
+.form_head{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    background-color: rgb(1, 6, 27);
+    margin-bottom: 10px;
+}
+.form_ctn{
+    margin-top: 40px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.329); 
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+form{
+    background: white;
+    border: none;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.login_btn_nav{
+    background-color: rgb(1, 6, 27);
+}
+
+.divider{
+    margin: 10px;
+}
