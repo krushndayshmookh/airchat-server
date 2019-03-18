@@ -6,8 +6,8 @@
   "scripts": {
     "build": "gulp",
     "postinstall": "npm run build",
-    "start": "nodemon index.js",
-    "debug": "concurrently --kill-others \"gulp dev\" \"nodemon index.js\"",
+    "start": "node index.js",
+    "dev": "concurrently --kill-others \"gulp dev\" \"nodemon index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
