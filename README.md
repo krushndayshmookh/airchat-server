@@ -6,16 +6,16 @@
 
 #### Dev
 
-* `node`
-* `yarn`
-* `gulp`
+- `node`
+- `yarn`
+- `gulp`
 
 #### Runtime
 
-* `node`
-* `express`
-* `mongoose`
-* `pug`
+- `node`
+- `express`
+- `mongoose`
+- `pug`
 
 ### Instructions
 
@@ -33,16 +33,13 @@ Run the development server and Gulp watcher using `yarn debug`
 
 You can now visit the application at [`localhost:3000`](http://localhost:3000)
 
-##To do list
-* [ ] Register User
-* [ ] Register organization
-* [ ] Register User
-* [ ] Chats and org. screen
-* [ ] Contacts
-* [ ] Chat screen
-* [ ] Organization screen
-* [ ] Settings 
+### To do list
 
-
-
-
+- [ ] Register User
+- [ ] Register organization
+- [ ] Register User
+- [ ] Chats and org. screen
+- [ ] Contacts
+- [ ] Chat screen
+- [ ] Organization screen
+- [ ] Settings
