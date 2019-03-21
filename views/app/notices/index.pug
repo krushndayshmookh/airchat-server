@@ -1,0 +1,137 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Bulletin board
+    // Compiled and minified CSS
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    // CSS
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='css/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
+    link(href='airchat_org_description.css', type='text/css', rel='stylesheet', media='screen,projection')
+    style.
+      nav .container {
+      width: 95%;
+      }
+      .card {
+      padding: 5px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      }
+      .info-title {
+      font-size: 24px;
+      }
+      #org_name {
+      display: block;
+      margin-bottom: 15px;
+      }
+      #org_heading {
+      border-bottom: 2px solid rgb(6, 134, 134);
+      width: auto;
+      }
+      .badge_creator {
+      padding: 3px 6px 4px 6px;
+      background: teal;
+      color: white;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-left: 5px;
+      }
+      .switch label input[type=checkbox]:checked+.lever:after {
+      background-color: rgb(4, 180, 180) !important;
+      }
+      .switch label input[type=checkbox]:checked+.lever {
+      background-color: rgb(3, 104, 104) !important;
+      }
+  body
+    .navbar-fixed(style='z-index:999;')
+      nav.teal
+        .container
+          .nav-wrapper
+            a.brand-logo(href='#!') Airchat
+            a.sidenav-trigger(href='#!', data-target='mobile-demo')
+              i.material-icons menu
+            ul.right.hide-on-med-and-down
+              li
+                a(href='#!') Home
+              li
+                a(href='#!') Contacts
+              li
+                a(href='#!') Profile
+              li.active
+                a(href='#!') Bulletin
+              li
+                a(href='#!') Log out
+      ul#mobile-demo.sidenav.white
+        li
+          a(href='#!') Home
+        li
+          a(href='#!') Contacts
+        li
+          a(href='#!') Profile
+        li.active
+          a(href='#!') Bulletin
+        li
+          a(href='#!') Log out
+    .container(style='width:95%;')
+      .row
+        .col.s12.m4.l4
+          h4(style='margin-bottom:0px !important;border-bottom: 2px solid teal;') Bulletin board
+        .s12.m8.l8
+      .row
+        .col.s12.m6.l4
+          .card(style='background:#01061b;')
+            ul.collapsible(style='box-shadow:none;border:none;')
+              each notice in notices
+                li
+                  .collapsible-header(style='background:#01061b;border-bottom: 1px solid teal;')
+                    .card-content
+                      .card-title(style='color:#08b3b3;background:#01061b;')
+                        | Title:
+                      p(style='color:white;')
+                        | #{notice.title}
+                  .collapsible-body(style='border:none;padding-bottom:0px;')
+                    span(style='display:block;color: #08b3b3;letter-spacing: 0.5px;') Description:
+                    p(style='font-size:14px;color: white;letter-spacing: 0.5px;')
+                      | #{notice.discription}
+                    .card-action(style='padding-bottom:0px !important;')
+                      .row
+                        .col.s12
+                          span.left.teal-text Reminder
+                          .switch.right
+                            label
+                              | Off
+                              input#notification(type='checkbox')
+                              span.lever(style='background:#b6b3b3;')
+                              |                                                     On
+    // Scripts
+    // Compiled and minified JavaScript
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
+    script.
+      function myFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("search_par");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("names_col");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("span")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+      } else {
+      li[i].style.display = "none";
+      }
+      }
+      }
+      // Or with jQuery
+      $(document).ready(function () {
+      $('.sidenav').sidenav();
+      });
+      $(document).ready(function () {
+      $('.collapsible').collapsible();
+      });
