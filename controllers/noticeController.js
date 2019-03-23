@@ -10,9 +10,9 @@ exports.notice_create_post = (req, res) => {
 	})
 
 	newNotice.save(err => {
-        if (err) return res.status(500).send(err)
-        
-        return res.send(newNotice)
+		if (err) return res.status(500).send(err)
+
+		return res.send(newNotice)
 	})
 }
 
@@ -20,8 +20,18 @@ exports.notices_get = (req, res) => {
 	Notice.find({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
-        if (result) return res.send(result)
-        
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
+
+exports.notice_get = (req, res) => {
+	Notice.findById(req.params.id, (err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
 		return res.send(false)
 	})
 }
