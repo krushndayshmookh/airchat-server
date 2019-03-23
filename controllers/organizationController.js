@@ -24,6 +24,16 @@ exports.organizations_get = (req, res) => {
 	})
 }
 
+exports.organizations_root_get = (req, res) => {
+	Organization.find({ root: true }, (err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send('No record found.')
+	})
+}
+
 exports.organization_create_post = (req, res) => {
 	let neworg = new Organization({
 		name: req.body.name,
