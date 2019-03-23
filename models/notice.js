@@ -3,21 +3,18 @@ const Schema = mongoose.Schema
 
 const noticeSchema = new Schema({
 	from: {
-		type: String,
-		required: true
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
 	},
 	title: {
-		type: String,
-		required: true
+		type: String
 	},
-	discription: {
-		type: String,
-		requied: true
+	body: {
+		type: String
 	},
 	date: {
-		type: Date,
-		default: Date.now
+		type: Date
 	}
 })
 
-module.exports = mongoose.model('Notices', noticeSchema)
+module.exports = mongoose.model('Notice', noticeSchema)
