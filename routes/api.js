@@ -1,11 +1,10 @@
 const express = require('express')
 var router = express.Router()
 
-
 // Home page -----
 
 router.get('/', (req, res) => {
-    res.render('api/index')
+	res.render('api/index')
 })
 
 // -----
@@ -34,7 +33,6 @@ router.get('/organizations/delete/all', organizationController.organizations_del
 router.get('/organization/:id/members', organizationController.organization_members_get)
 // -----
 
-
 var userController = require('../controllers/userController')
 
 // POST request for creating user.
@@ -48,8 +46,9 @@ router.get('/users', userController.users_get)
 
 // -----
 
+const noticeController = require('../controllers/noticeController')
 
-
+router.post('/notice/create', noticeController.notices_create_post)
 
 //export this router to use in our index.
 module.exports = router
