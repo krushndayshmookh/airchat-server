@@ -56,6 +56,13 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
 	res.render('app/auth/signup')
 })
+router.get('/notices/create', (req, res) => {
+	res.render('app/notices/create')
+})
+router.get('/notices', (req, res) => {
+	res.render('app/notices/index')
+})
+
 
 // -----
 

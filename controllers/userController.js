@@ -55,7 +55,7 @@ exports.user_get = (req, res) => {
         return res.send('No record found.')
 
     })
-}
+}  
 
 
 exports.user_create_get = (req, res) => {
