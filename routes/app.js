@@ -24,18 +24,18 @@ router.get('/organization/profile', (req, res) => {
 var organizationController = require('../controllers/organizationController')
 
 // GET request for creating organization form.
-router.get('/organization/create', organizationController.organization_create_get)
+router.get('/organization/create', organizationController.organization_create_view_get)
 // GET request for all organizations dashboard.
-router.get('/organization', organizationController.organization_get)
+router.get('/organizations', organizationController.organizations_view_get)
 
 // -----
 
 var userController = require('../controllers/userController')
 
 // GET request for creating user form.
-router.get('/user/create', userController.user_create_get)
+router.get('/user/create', userController.user_create_view_get)
 // GET request for all users dashboard.
-router.get('/user', userController.user_get)
+router.get('/user', userController.users_view_get)
 
 router.get('/user/chats', (req, res) => {
 	res.render('app/chat/list')
@@ -63,7 +63,7 @@ router.get('/notices/create', (req, res) => {
 	res.render('app/notices/create')
 })
 
-router.get('/notices', noticeController.notices_all_get)
+router.get('/notices', noticeController.notices_view_get)
 
 // -----
 

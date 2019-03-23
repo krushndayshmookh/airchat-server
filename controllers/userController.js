@@ -64,7 +64,7 @@ exports.user_delete_post = (req, res) => {
 
 // Application -----
 
-exports.user_view_get = (req, res) => {
+exports.users_view_get = (req, res) => {
     User.find({}).populate('organization').exec((err, result) => {
         if (err) return res.status(500).send(err)
 

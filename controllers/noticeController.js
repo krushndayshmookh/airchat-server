@@ -55,3 +55,15 @@ exports.notice_delete_post = (req, res) => {
 		return res.send(false)
 	})
 }
+
+// Application -----
+
+exports.notices_view_get = (req, res) => {
+	Notice.find({}, (err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.render({ notices: result })
+
+		return res.send(false)
+	})
+}
