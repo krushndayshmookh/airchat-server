@@ -2,7 +2,7 @@ var User = require('../models/user')
 var Organization = require('../models/organization')
 
 // API -----
-exports.user_detail_get = (req, res) => {
+exports.user_get = (req, res) => {
     User.findById(req.params.id).populate('organization').exec((err, result) => {
         if (err) return res.status(500).send(err)
 
@@ -25,26 +25,46 @@ exports.users_get = (req, res) => {
 }
 
 exports.user_create_post = (req, res) => {
-    let newuser = new User({
+    let newUser = new User({
         name: req.body.name,
-        phone: req.body.phone,
         username: req.body.username,
         password: req.body.password,
         position: req.body.position,
         organization: req.body.organization
     })
-    newuser.save(err=>{
+
+    newUser.save(err=>{
         if (err) return res.status(500).send(err)
-        return res.send(newuser)
+         
+        return res.send(newUser)
     })
 }
 
 
+exports.user_delete_all_get = (req, res) => {
+	User.remove({}, (err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
+
+exports.user_delete_post = (req, res) => {
+	User.findByIdAndRemove(req.params.id, (err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
 
 
 // Application -----
 
-exports.user_get = (req, res) => {
+exports.user_view_get = (req, res) => {
     User.find({}).populate('organization').exec((err, result) => {
         if (err) return res.status(500).send(err)
 
@@ -58,7 +78,7 @@ exports.user_get = (req, res) => {
 }  
 
 
-exports.user_create_get = (req, res) => {
+exports.user_create_view_get = (req, res) => {
     Organization.find({}, (err, result) => {
         if (err) return res.status(500).send(err)
 
