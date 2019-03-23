@@ -1,4 +1,4 @@
-const Notice = require('../models/notices')
+const Notice = require('../models/notice')
 
 exports.notices_create_post = (req, res) => {
 	let newnot = new Notice({
