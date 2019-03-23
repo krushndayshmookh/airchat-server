@@ -62,7 +62,7 @@ exports.notices_view_get = (req, res) => {
 	Notice.find({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
-		if (result) return res.render({ notices: result })
+		if (result) return res.render('app/notice/index',{ notices: result })
 
 		return res.send(false)
 	})
