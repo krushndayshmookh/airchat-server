@@ -24,10 +24,7 @@ router.get('/organization/profile', (req, res) => {
 var organizationController = require('../controllers/organizationController')
 
 // GET request for creating organization form.
-router.get(
-	'/organization/create',
-	organizationController.organization_create_get
-)
+router.get('/organization/create', organizationController.organization_create_get)
 // GET request for all organizations dashboard.
 router.get('/organization', organizationController.organization_get)
 
