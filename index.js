@@ -1,6 +1,7 @@
 const express = require('express')
 const socketIO = require('socket.io')
 const http = require('http')
+const logger = require('morgan')
 
 var app = express()
 var server = http.createServer(app)
@@ -56,6 +57,10 @@ app.set('views', './views')
 
 const cors = require('cors')
 app.use(cors())
+
+// -----
+
+app.use(logger('dev'))
 
 // -----
 
