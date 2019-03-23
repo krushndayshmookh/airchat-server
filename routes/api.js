@@ -53,6 +53,21 @@ router.post('/user/:id/delete', userController.user_delete_post)
 
 // -----
 
+var noticeController = require('../controllers/noticeController')
+
+router.post('/notice/create', noticeController.notice_create_post)
+
+router.get('/notice/:id', noticeController.notice_get)
+
+router.get('/notices', noticeController.notices_get)
+
+router.get('/notices/delete/all', noticeController.notices_delete_all_get)
+
+router.post('/notice/:id/delete', noticeController.notice_delete_post)
+
+
+// -----
+
 const noticeController = require('../controllers/noticeController')
 
 router.post('/notice/create', noticeController.notices_create_post)

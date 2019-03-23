@@ -36,7 +36,7 @@ exports.notice_get = (req, res) => {
 	})
 }
 
-exports.notice_delete_all_get = (req, res) => {
+exports.notices_delete_all_get = (req, res) => {
 	Notice.remove({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
