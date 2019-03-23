@@ -1,31 +1,32 @@
 const Notice = require('../models/notice')
+const moment = require('moment')
 
-exports.notices_create_post = (req, res) => {
-	let newnot = new Notice({
+exports.notice_create_post = (req, res) => {
+	let newNotice = new Notice({
 		from: req.body.from,
 		title: req.body.title,
-		discription: req.body.discription
+		body: req.body.body,
+		date: new moment()
 	})
-	newnot.save(err => {
-		if (err) return res.status(500).send(err)
-		return res.send(newnot)
+
+	newNotice.save(err => {
+        if (err) return res.status(500).send(err)
+        
+        return res.send(newNotice)
 	})
-	// console.log(req.body);
-	// console.log(newnot);
 }
 
-exports.notices_all_get = (req, res) => {
+exports.notices_get = (req, res) => {
 	Notice.find({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
-		if (result)
-			return res.render('app/notices/index', {
-				notices: result
-			})
+        if (result) return res.send(result)
+        
+		return res.send(false)
 	})
 }
 
-exports.notices_delete_all_get = (req, res) => {
+exports.notice_delete_all_get = (req, res) => {
 	Notice.remove({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
@@ -35,7 +36,7 @@ exports.notices_delete_all_get = (req, res) => {
 	})
 }
 
-exports.notices_delete_post = (req, res) => {
+exports.notice_delete_post = (req, res) => {
 	Notice.findByIdAndRemove(req.params.id, (err, result) => {
 		if (err) return res.status(500).send(err)
 
