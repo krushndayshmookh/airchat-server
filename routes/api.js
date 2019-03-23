@@ -68,9 +68,24 @@ router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
 // -----
 
-const noticeController = require('../controllers/noticeController')
+var messageController = require('../controllers/messageController')
 
-router.post('/notice/create', noticeController.notices_create_post)
+router.post('/message/create', messageController.message_create_post)
+
+router.get('/message/:id', messageController.message_get)
+
+router.get('/messages', messageController.messages_get)
+
+router.get('/messages/from/:from', messageController.messages_from_user_get)
+
+router.get('/messages/to/:to', messageController.messages_to_user_get)
+
+router.get('/messages/delete/all', messageController.messages_delete_all_get)
+
+router.post('/message/:id/delete', messageController.message_delete_post)
+
+
+// -----
 
 //export this router to use in our index.
 module.exports = router

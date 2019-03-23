@@ -60,7 +60,7 @@ exports.message_get = (req, res) => {
 	})
 }
 
-exports.message_delete_all_get = (req, res) => {
+exports.messages_delete_all_get = (req, res) => {
 	Message.remove({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 
