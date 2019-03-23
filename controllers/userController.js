@@ -41,7 +41,7 @@ exports.user_create_post = (req, res) => {
 }
 
 
-exports.user_delete_all_get = (req, res) => {
+exports.users_delete_all_get = (req, res) => {
 	User.remove({}, (err, result) => {
 		if (err) return res.status(500).send(err)
 

@@ -42,10 +42,14 @@ var userController = require('../controllers/userController')
 router.post('/user/create', userController.user_create_post)
 
 // GET request for one user.
-router.get('/user/:id', userController.user_detail_get)
+router.get('/user/:id', userController.user_get)
 
 // GET request for all users.
 router.get('/users', userController.users_get)
+
+router.get('/users/delete/all', userController.users_delete_all_get)
+
+router.post('/user/:id/delete', userController.user_delete_post)
 
 // -----
 
