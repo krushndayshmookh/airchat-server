@@ -17,6 +17,10 @@ const conversationSchema = new Schema({
 			ref: 'User'
 		}
 	],
+	creator: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	},
 	messages: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
