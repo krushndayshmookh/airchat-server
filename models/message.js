@@ -7,11 +7,7 @@ const messageSchema = new Schema({
 			type: String
 		}
 	},
-	from: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-	},
-	to: {
+	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User'
 	},
