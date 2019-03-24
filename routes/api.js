@@ -19,7 +19,7 @@ router.post('/organization/create', organizationController.organization_create_p
 // GET request for one organization.
 router.get('/organization/:id', organizationController.organization_get)
 
-// POST request for one organization.
+// POST request for deleting one organization.
 router.post('/organization/:id/delete', organizationController.organization_delete_post)
 
 // GET request for all organizations.
@@ -28,11 +28,12 @@ router.get('/organizations', organizationController.organizations_get)
 // GET request for all root organizations.
 router.get('/organizations/root', organizationController.organizations_root_get)
 
-// GET request for delete all organizations.
+// GET request for deleting all organizations.
 router.get('/organizations/delete/all', organizationController.organizations_delete_all_get)
 
 // GET request for organization members.
 router.get('/organization/:id/members', organizationController.organization_members_get)
+
 // -----
 
 const userController = require('../controllers/userController')
@@ -46,10 +47,10 @@ router.get('/user/:id', userController.user_get)
 // GET request for all users.
 router.get('/users', userController.users_get)
 
-// GET request for delete all users.
+// GET request for deleting all users.
 router.get('/users/delete/all', userController.users_delete_all_get)
 
-// GET request fir delete user.
+// POST request fir deleting user.
 router.post('/user/:id/delete', userController.user_delete_post)
 
 // -----
@@ -65,10 +66,10 @@ router.get('/notice/:id', noticeController.notice_get)
 // GET request for all notices.
 router.get('/notices', noticeController.notices_get)
 
-// GET request for delete all notices
+// GET request for deleting all notices
 router.get('/notices/delete/all', noticeController.notices_delete_all_get)
 
-// GET request for delete one notice.
+// POST request for deleting one notice.
 router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
 // -----
@@ -84,13 +85,13 @@ router.get('/conversation/:id', conversationController.conversation_get)
 // GET request for all conversations.
 router.get('/conversations', conversationController.conversations_get)
 
-// GET request for delete all conversations.
+// GET request for deleting all conversations.
 router.get('/conversations/delete/all', conversationController.conversations_delete_all_get)
 
-// GET request for delete one conversation.
+// GET request for deleting one conversation.
 router.post('/conversation/:id/delete', conversationController.conversation_delete_post)
 
-// GET request for join conversation.
+// POST request for joining conversation.
 router.post('/conversation/:id/join', conversationController.conversation_join_post)
 
 // -----
@@ -109,7 +110,7 @@ router.get('/messages', messageController.messages_get)
 // GET request for deleting all messages.
 router.get('/messages/delete/all', messageController.messages_delete_all_get)
 
-// GET request for delete one message.
+// POST request for deleting one message.
 router.post('/message/:id/delete', messageController.message_delete_post)
 
 // -----
