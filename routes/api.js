@@ -1,5 +1,5 @@
 const express = require('express')
-var router = express.Router()
+const router = express.Router()
 
 // Home page -----
 
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 // Data Routes -----
 
 // Require controller modules.
-var organizationController = require('../controllers/organizationController')
+const organizationController = require('../controllers/organizationController')
 
 // POST request for creating organization.
 router.post('/organization/create', organizationController.organization_create_post)
@@ -36,7 +36,7 @@ router.get('/organizations/delete/all', organizationController.organizations_del
 router.get('/organization/:id/members', organizationController.organization_members_get)
 // -----
 
-var userController = require('../controllers/userController')
+const userController = require('../controllers/userController')
 
 // POST request for creating user.
 router.post('/user/create', userController.user_create_post)
@@ -53,7 +53,7 @@ router.post('/user/:id/delete', userController.user_delete_post)
 
 // -----
 
-var noticeController = require('../controllers/noticeController')
+const noticeController = require('../controllers/noticeController')
 
 router.post('/notice/create', noticeController.notice_create_post)
 
@@ -68,7 +68,7 @@ router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
 // -----
 
-var messageController = require('../controllers/messageController')
+const messageController = require('../controllers/messageController')
 
 router.post('/message/create', messageController.message_create_post)
 

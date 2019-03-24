@@ -1,5 +1,5 @@
-var User = require('../models/user')
-var Organization = require('../models/organization')
+const User = require('../models/user')
+const Organization = require('../models/organization')
 
 // API -----
 exports.user_get = (req, res) => {

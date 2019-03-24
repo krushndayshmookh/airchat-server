@@ -1,5 +1,5 @@
 const express = require('express')
-var router = express.Router()
+const router = express.Router()
 
 // User side pages -----
 
@@ -21,7 +21,7 @@ router.get('/organization/profile', (req, res) => {
 // Data Routes -----
 
 // Require controller modules.
-var organizationController = require('../controllers/organizationController')
+const organizationController = require('../controllers/organizationController')
 
 // GET request for creating organization form.
 router.get('/organization/create', organizationController.organization_create_view_get)
@@ -30,7 +30,7 @@ router.get('/organizations', organizationController.organizations_view_get)
 
 // -----
 
-var userController = require('../controllers/userController')
+const userController = require('../controllers/userController')
 
 // GET request for creating user form.
 router.get('/user/create', userController.user_create_view_get)
@@ -57,7 +57,7 @@ router.get('/signup', (req, res) => {
 	res.render('app/auth/signup')
 })
 
-var noticeController = require('../controllers/noticeController')
+const noticeController = require('../controllers/noticeController')
 
 router.get('/notices/create', (req, res) => {
 	res.render('app/notices/create')
