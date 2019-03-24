@@ -3,9 +3,7 @@ const router = express.Router()
 
 // Home page -----
 
-router.get('/', (req, res) => {
-	res.render('api/index')
-})
+router.get('/', (req, res) => res.render('api/index'))
 
 // -----
 
@@ -65,7 +63,6 @@ router.get('/notices/delete/all', noticeController.notices_delete_all_get)
 
 router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
-
 // -----
 
 const messageController = require('../controllers/messageController')
@@ -83,7 +80,6 @@ router.get('/messages/to/:to', messageController.messages_to_user_get)
 router.get('/messages/delete/all', messageController.messages_delete_all_get)
 
 router.post('/message/:id/delete', messageController.message_delete_post)
-
 
 // -----
 
