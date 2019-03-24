@@ -32,30 +32,28 @@ block content
             li root: Boolean | default: true
             li suborgs: [ObjectId(Organization)]
 
-        
         h4 Conversation
         p File: conversation.js
         p Schema: Conversation
         p Properties: 
-        ul 
+        ul.browser-default 
             li name: String
             li admins: ObjectId(User)
             li users: ObjectId(User)
             li creator: ObjectId(User)
             li messages: ObjectId(Message)
 
-       
         h4 Message
         p File: message.js
         p Schema: Message
         p Properties: 
-        ul 
+        ul.browser-default 
             li date:
-                ul
+                ul.browser-default
                     li text: String
             li user: ObjectId(User)
             li time:
-                ul  
+                ul.browser-default  
                     li sent: Date
                     li.blue-text.text-darken-2 delivered: Date
                     li.blue-text.text-darken-2 read: Date   
@@ -64,7 +62,7 @@ block content
         p File: notice.js
         p Schema: Notice
         p Properties: 
-        ul
+        ul.browser-default
             li from: ObjectId(User)
             li title: String
             li body: String
