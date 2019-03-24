@@ -10,27 +10,27 @@ exports.organization_get = (req, res) => {
 
 			if (result) return res.send(result)
 
-			return res.send('No record found for id ' + req.params.id)
+			return res.send(false)
 		})
 }
 
 exports.organizations_get = (req, res) => {
-	Organization.find({}, (err, result) => {
+	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
 
-		return res.send('No record found.')
+		return res.send(false)
 	})
 }
 
 exports.organizations_root_get = (req, res) => {
-	Organization.find({ root: true }, (err, result) => {
+	Organization.find({ root: true }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
 
-		return res.send('No record found.')
+		return res.send(false)
 	})
 }
 
@@ -51,34 +51,26 @@ exports.organization_create_post = (req, res) => {
 		return res.send(neworg)
 	}
 
-	Organization.findById(req.body.parent, (err, oldorg) => {
+	Organization.findById(req.body.parent).exec((err, oldorg) => {
 		if (err) return res.status(500).send(err)
 
 		oldorg.suborgs.push(neworg._id)
 
-		Organization.findByIdAndUpdate(
-			oldorg._id,
-			{
-				suborgs: oldorg.suborgs
-			},
-			{
-				new: true
-			},
-			(err, result) => {
-				if (err) return res.status(500).send(err)
+		Organization.findByIdAndUpdate(oldorg._id, { suborgs: oldorg.suborgs }, { new: true }).exec((err, result) => {
+			if (err) return res.status(500).send(err)
 
-				neworg.save()
-				return res.send({
-					new: neworg,
-					parent: result
-				})
-			}
-		)
+			neworg.save()
+
+			return res.send({
+				new: neworg,
+				parent: result
+			})
+		})
 	})
 }
 
 exports.organizations_delete_all_get = (req, res) => {
-	Organization.remove({}, (err, result) => {
+	Organization.remove({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -88,7 +80,7 @@ exports.organizations_delete_all_get = (req, res) => {
 }
 
 exports.organization_delete_post = (req, res) => {
-	Organization.findByIdAndRemove(req.params.id, (err, result) => {
+	Organization.findByIdAndRemove(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -98,18 +90,13 @@ exports.organization_delete_post = (req, res) => {
 }
 
 exports.organization_members_get = (req, res) => {
-	User.find(
-		{
-			organization: req.params.id
-		},
-		(err, result) => {
-			if (err) return res.status(500).send(err)
+	User.find({ organization: req.params.id }).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
-			if (result) return res.send(result)
+		if (result) return res.send(result)
 
-			return res.send(false)
-		}
-	)
+		return res.send(false)
+	})
 }
 
 // Application -----
@@ -120,25 +107,18 @@ exports.organizations_view_get = (req, res) => {
 		.exec((err, result) => {
 			if (err) return res.status(500).send(err)
 
-			if (result)
-				return res.render('app/organization/index', {
-					organizations: result
-				})
+			if (result) return res.render('app/organization/index', { organizations: result })
 
-			return res.send('No record found.')
+			return res.send(false)
 		})
 }
 
 exports.organization_create_view_get = (req, res) => {
-	Organization.find({}, (err, result) => {
+	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
-		if (result)
-			return res.render('app/organization/create', {
-				organizations: result
-			})
+		if (result) return res.render('app/organization/create', { organizations: result })
 
-		return res.send('No record found.')
+		return res.send(false)
 	})
-	//- res.render('organization/create')
 }

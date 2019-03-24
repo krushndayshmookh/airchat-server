@@ -9,7 +9,7 @@ exports.notice_create_post = (req, res) => {
 		date: new moment()
 	})
 
-	newNotice.save(err => {
+	newNotice.save().exec(err => {
 		if (err) return res.status(500).send(err)
 
 		return res.send(newNotice)
@@ -17,7 +17,7 @@ exports.notice_create_post = (req, res) => {
 }
 
 exports.notices_get = (req, res) => {
-	Notice.find({}, (err, result) => {
+	Notice.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -27,7 +27,7 @@ exports.notices_get = (req, res) => {
 }
 
 exports.notice_get = (req, res) => {
-	Notice.findById(req.params.id, (err, result) => {
+	Notice.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -37,7 +37,7 @@ exports.notice_get = (req, res) => {
 }
 
 exports.notices_delete_all_get = (req, res) => {
-	Notice.remove({}, (err, result) => {
+	Notice.remove({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -47,7 +47,7 @@ exports.notices_delete_all_get = (req, res) => {
 }
 
 exports.notice_delete_post = (req, res) => {
-	Notice.findByIdAndRemove(req.params.id, (err, result) => {
+	Notice.findByIdAndRemove(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -59,10 +59,10 @@ exports.notice_delete_post = (req, res) => {
 // Application -----
 
 exports.notices_view_get = (req, res) => {
-	Notice.find({}, (err, result) => {
+	Notice.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
-		if (result) return res.render('app/notice/index',{ notices: result })
+		if (result) return res.render('app/notice/index', { notices: result })
 
 		return res.send(false)
 	})

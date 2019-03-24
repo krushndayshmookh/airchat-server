@@ -13,7 +13,7 @@ exports.message_create_post = (req, res) => {
 		}
 	})
 
-	newMessage.save(err => {
+	newMessage.save().exec(err => {
 		if (err) return res.status(500).send(err)
 
 		return res.send(newMessage)
@@ -21,7 +21,7 @@ exports.message_create_post = (req, res) => {
 }
 
 exports.messages_get = (req, res) => {
-	Message.find({}, (err, result) => {
+	Message.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -31,7 +31,7 @@ exports.messages_get = (req, res) => {
 }
 
 exports.messages_from_user_get = (req, res) => {
-	Message.find({ from: req.params.from }, (err, result) => {
+	Message.find({ from: req.params.from }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -41,7 +41,7 @@ exports.messages_from_user_get = (req, res) => {
 }
 
 exports.messages_to_user_get = (req, res) => {
-	Message.find({ to: req.params.to }, (err, result) => {
+	Message.find({ to: req.params.to }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -51,7 +51,7 @@ exports.messages_to_user_get = (req, res) => {
 }
 
 exports.message_get = (req, res) => {
-	Message.findById(req.params.id, (err, result) => {
+	Message.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -61,7 +61,7 @@ exports.message_get = (req, res) => {
 }
 
 exports.messages_delete_all_get = (req, res) => {
-	Message.remove({}, (err, result) => {
+	Message.remove({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -71,7 +71,7 @@ exports.messages_delete_all_get = (req, res) => {
 }
 
 exports.message_delete_post = (req, res) => {
-	Message.findByIdAndRemove(req.params.id, (err, result) => {
+	Message.findByIdAndRemove(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
