@@ -20,4 +20,20 @@ html(lang="en")
             li position: String
             li organization: ObjectId(Organization)
 
+        h4 Organization
+        p File: organization.js
+        p Schema: Organization
+        p Properties: 
+        ul 
+            li name: String
+            li location: 
+                ul
+                    li name: String
+                    li geo: 
+                        ul
+                            li lat: Number
+                            li long: Number
+            li parent: ObjectId(Organization)                
+            li root: Boolean | default: true
+            li suborgs: [ObjectId(Organization)]
         
