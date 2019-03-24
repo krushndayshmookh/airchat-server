@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	noticesVue = new Vue({
 		el: '#notices',
 		data: {
-			notice: []
+			notices: []
 		},
 		updated: () => {
 			M.Collapsible.init(document.querySelectorAll('.collapsible'), {

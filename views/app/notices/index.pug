@@ -9,18 +9,19 @@ block content
 
 	section#notices
 		.container
-			h4.center Create post
+			h4.center Bulletin Board
 
 			.row
 				.col.s12
 					ul.collapsible
-						li(v-for="notice in notices") {{notice}}
+					
+						li(v-for="notice in notices")
 							.collapsible-header {{ notice.title }}
 
 							.collapsible-body
 								p {{ notice.body }}
-								p {{ notice.from.name }}
-								p {{ notice.date }}
+								p Posted by: {{ notice.from.name }}
+								p Posted at: {{ notice.date }}
 
 
 
