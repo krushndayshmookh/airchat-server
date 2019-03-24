@@ -10,7 +10,7 @@ exports.conversation_create_post = (req, res) => {
 	newConversation.admins.push(req.body.creator)
 	newConversation.users.push(req.body.creator)
 
-	newConversation.save().exec(err => {
+	newConversation.save(err => {
 		if (err) return res.status(500).send(err)
 
 		return res.send(newConversation)

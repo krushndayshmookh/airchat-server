@@ -9,7 +9,7 @@ exports.notice_create_post = (req, res) => {
 		date: new moment()
 	})
 
-	newNotice.save().exec(err => {
+	newNotice.save(err => {
 		if (err) return res.status(500).send(err)
 
 		return res.send(newNotice)

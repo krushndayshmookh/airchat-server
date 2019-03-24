@@ -33,7 +33,7 @@ exports.user_create_post = (req, res) => {
 		organization: req.body.organization
 	})
 
-	newUser.save().exec(err => {
+	newUser.save(err => {
 		if (err) return res.status(500).send(err)
 
 		return res.send(newUser)

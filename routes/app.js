@@ -20,7 +20,7 @@ const organizationController = require('../controllers/organizationController')
 // GET request for creating organization form.
 router.get('/organization/create', organizationController.organization_create_view_get)
 // GET request for all organizations dashboard.
-router.get('/organizations', organizationController.organizations_view_get)
+router.get('/organizations', (req, res) => res.render('app/organization/index'))
 
 // -----
 
@@ -51,7 +51,7 @@ router.get('/notices', noticeController.notices_view_get)
 
 
 // VUE -----
-router.get('/vue/organizations', (req, res) => res.render('app/organization/index-vue'))
+
 
 router.get('/vue/notices', (req, res) => res.render('app/notices/index_vue'))
 

@@ -113,18 +113,6 @@ exports.organization_members_get = (req, res) => {
 
 // Application -----
 
-exports.organizations_view_get = (req, res) => {
-	Organization.find({})
-		.populate('suborgs')
-		.exec((err, result) => {
-			if (err) return res.status(500).send(err)
-
-			if (result) return res.render('app/organization/index', { organizations: result })
-
-			return res.send(false)
-		})
-}
-
 exports.organization_create_view_get = (req, res) => {
 	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
