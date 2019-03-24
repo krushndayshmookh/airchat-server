@@ -17,7 +17,7 @@ exports.notice_create_post = (req, res) => {
 }
 
 exports.notices_get = (req, res) => {
-	Notice.find({}).exec((err, result) => {
+	Notice.find({}).populate('from').exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
