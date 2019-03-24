@@ -1,10 +1,10 @@
 const Message = require('../models/message')
+const Conversation = require('../models/conversation')
 const moment = require('moment')
 
 exports.message_create_post = (req, res) => {
 	let newMessage = new Message({
-		from: req.body.from,
-		to: req.body.title,
+		user: req.body.user,
 		data: {
 			text: req.body.text
 		},
@@ -16,7 +16,17 @@ exports.message_create_post = (req, res) => {
 	newMessage.save().exec(err => {
 		if (err) return res.status(500).send(err)
 
-		return res.send(newMessage)
+		Conversation.findByIdAndUpdate(req.body.conversation, {
+			$push: {
+				messages: newMessage
+			}
+		}).exec((err, result) => {
+			if (err) return res.status(500).send(err)
+
+			if (result) return res.send(newMessage)
+
+			return res.send(false)
+		})
 	})
 }
 
