@@ -7,8 +7,27 @@ block content
         h4 Organization
 
         ul.browser-default
-            li
-                a(href="/api/organization/create") "/api/organization/create" - POST - Organization create
+            li Organization create
+                pre
+                    code.language-js 
+                        | POST - "/api/organization/create"  
+                        | 
+                        | body: {
+                        |    name: String, 
+                        |    location: {
+                        |        name: String, 
+                        |        geo: {
+                        |            lat: Number,
+                        |            long: Number
+                        |        }
+                        |    }, 
+                        |    root: 'on'|'off', 
+                        |    parent: ObjectId(Organization)
+                        | }
+                        | 
+                        | params: {}
+                        |
+                        | response: Object(Organization)
 
             li
                 a(href="/api/organizations") "/api/organizations" - GET - Organization list
