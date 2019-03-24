@@ -22,7 +22,7 @@ const apiroutes = require('./routes/api')
 const mongoose = require('mongoose')
 
 //Set up default mongoose connection
-mongoose.connect(DBPORT)
+mongoose.connect(DBPORT, { useNewUrlParser: true })
 
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise
