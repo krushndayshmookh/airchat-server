@@ -1,16 +1,17 @@
 let organizationsVue
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
 	organizationsVue = new Vue({
 		el: '#organizations',
 		data: {
 			organizations: []
 		}
-    })
-    updateOrganizations()
+	})
+	updateOrganizations()
 })
 
 const updateOrganizations = organizationId => {
-	let path = organizationId ? '/api/organization/' + organizationId : '/api/organizations/root'
+	let path = '/api/organizations/'
+	path += organizationId ? organizationId : 'root'
 	fetch(path)
 		.then(response => response.json())
 		.then(organizations => {

@@ -10,7 +10,7 @@ block content
     section#organizations
         .container
             .collection
-                a.collection-item(v-for='organization in organizations' @click='console.log(organization._id)') {{organization.name}}
+                a.collection-item(v-for='organization in organizations' @click='updateOrganizations(organization._id)') {{organization.name}}
 
 block scripts
     script(src="/js/init/init.organization.js")
