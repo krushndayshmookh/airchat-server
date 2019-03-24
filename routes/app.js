@@ -49,5 +49,12 @@ router.get('/notices', noticeController.notices_view_get)
 
 // -----
 
+
+// VUE -----
+router.get('/vue/organizations', (req, res) => res.render('app/organization/index-vue'))
+
+// -----
+
+
 //export this router to use in our index.
 module.exports = router
