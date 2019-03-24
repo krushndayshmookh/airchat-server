@@ -46,52 +46,70 @@ router.get('/user/:id', userController.user_get)
 // GET request for all users.
 router.get('/users', userController.users_get)
 
+// GET request for delete all users.
 router.get('/users/delete/all', userController.users_delete_all_get)
 
+// GET request fir delete user.
 router.post('/user/:id/delete', userController.user_delete_post)
 
 // -----
 
 const noticeController = require('../controllers/noticeController')
 
+// POST request for creating notice.
 router.post('/notice/create', noticeController.notice_create_post)
 
+// GET request for one notice.
 router.get('/notice/:id', noticeController.notice_get)
 
+// GET request for all notices.
 router.get('/notices', noticeController.notices_get)
 
+// GET request for delete all notices
 router.get('/notices/delete/all', noticeController.notices_delete_all_get)
 
+// GET request for delete one notice.
 router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
 // -----
 
 const conversationController = require('../controllers/conversationController')
 
+// POST request for creating conversation.
 router.post('/conversation/create', conversationController.conversation_create_post)
 
+// GET request for one conversation.
 router.get('/conversation/:id', conversationController.conversation_get)
 
+// GET request for all conversations.
 router.get('/conversations', conversationController.conversations_get)
 
+// GET request for delete all conversations.
 router.get('/conversations/delete/all', conversationController.conversations_delete_all_get)
 
+// GET request for delete one conversation.
 router.post('/conversation/:id/delete', conversationController.conversation_delete_post)
 
+// GET request for join conversation.
 router.post('/conversation/:id/join', conversationController.conversation_join_post)
 
 // -----
 
 const messageController = require('../controllers/messageController')
 
+// POST request for creating message.
 router.post('/message/create', messageController.message_create_post)
 
+// GET request for one message.
 router.get('/message/:id', messageController.message_get)
 
+// GET request for all messages.
 router.get('/messages', messageController.messages_get)
 
+// GET request for deleting all messages.
 router.get('/messages/delete/all', messageController.messages_delete_all_get)
 
+// GET request for delete one message.
 router.post('/message/:id/delete', messageController.message_delete_post)
 
 // -----
