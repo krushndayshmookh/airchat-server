@@ -36,4 +36,17 @@ html(lang="en")
             li parent: ObjectId(Organization)                
             li root: Boolean | default: true
             li suborgs: [ObjectId(Organization)]
+
         
+        h4 Conversation
+        p File: conversation.js
+        p Schema: Conversation
+        p Properties: 
+        ul 
+            li name: String
+            li admins: ObjectId(User)
+            li users: ObjectId(User)
+            li creator: ObjectId(User)
+            li messages: ObjectId(Message)
+
+       
