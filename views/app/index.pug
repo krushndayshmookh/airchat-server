@@ -1,50 +1,58 @@
+doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title AirChat
+
+        link(rel="stylesheet", href="/css/lib/materialize.min.css")
+        link(rel="stylesheet", href="/css/lib/MaterialIcons.css")
+        link(rel="stylesheet", href="/css/lib/dayshmookh.layout.css")
+
     body
-        h1 AirChat 
-
-        p
-            a(href="/api/docs") API Documentation
-
-            
-        p Available routes:
-        ul
-            li Organization
-                ul
-                    li
-                        a(href="/organization") /organization - List
-                    li
-                        a(href="/organization/create") /organization/create - Create
-                    li
-                        a(href="/organization/manage") Org manage
-                    li
-                        a(href="/organization/profile") Org Profile
-           
-           
-            li User
-                ul
-                    li
-                        a(href="/user") /user - List
-                    li
-                        a(href="/user/create") /user/create - Create
-                    li
-                        a(href="/user/profile") Profile
-                    li
-                        a(href="/login") Login 
-                    li
-                        a(href="/signup") signup 
-           
-           
-            li Conversation
-                ul
-                    li
-                        a(href="/user/chats") List
-                    li
-                        a(href="/user/chat") Chat
-
-                        
+        section.blue-grey.darken-3
+            .container
+                h1.blue-grey-text.text-lighten-5 AirChat
+        section
+            .container
+                p 
+                    a(href="/api/docs") API Documentation
+    
+                p Available app routes:
+                ul.browser-default
+                    li Organization
+                        ul.browser-default
+                            li
+                                a(href="/organization") /organization - List
+                            li
+                                a(href="/organization/create") /organization/create - Create
+                            li
+                                a(href="/organization/manage") Org manage
+                            li
+                                a(href="/organization/profile") Org Profile
+                
+                
+                    li User
+                        ul.browser-default
+                            li
+                                a(href="/user") /user - List
+                            li
+                                a(href="/user/create") /user/create - Create
+                            li
+                                a(href="/user/profile") Profile
+                            li
+                                a(href="/login") Login 
+                            li
+                                a(href="/signup") signup 
+                
+                
+                    li Conversation
+                        ul.browser-default
+                            li
+                                a(href="/user/chats") List
+                            li
+                                a(href="/user/chat") Chat
         
+        script(src="/js/lib/materialize.min.js")
+        script(src="/js/init.js")

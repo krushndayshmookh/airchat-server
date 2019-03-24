@@ -1,17 +1,12 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title AirChat
-    body
-        h1 AirChat
-        h2 Documentation
+extends components/layout
+
+block content
+    .container
         h3 Routes
         
         h4 Organization
 
-        ul
+        ul.browser-default
             li
                 a(href="/api/organization/create") "/api/organization/create" - POST - Organization create
 
