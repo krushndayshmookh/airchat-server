@@ -110,7 +110,7 @@ router.get('/message/:id', messageController.message_get)
 // GET request for all messages.
 router.get('/messages', messageController.messages_get)
 
-// GET request for deleting all messages.
+// GET request for delekruhndayshmookhting all messages.
 router.get('/messages/delete/all', messageController.messages_delete_all_get)
 
 // POST request for deleting one message.

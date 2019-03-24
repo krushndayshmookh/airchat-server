@@ -39,14 +39,158 @@ block content
                 a(href="/api/organizations/:id/members") "/api/organizations/:id/members" - GET - Organization members list for organization 'id'
             
             li
-                a(href="/api/organization/:id/delete", style="color:red") "/api/organization/:id/delete" - POST - Delete organization 'id'
+                a(href="/api/organizations/:id/delete", style="color:red") "/api/organization/:id/delete" - POST - Delete organization 'id'
 
             li
                 a(href="/api/organizations/delete/all", style="color:red") "/api/organizations/delete/all" - GET - Delete All organizations
 
             li  
-                a(href="/api/organization/root") "/api/organization/root"-Root of Organization
+                a(href="/api/organizations/root") "/api/organization/root"-Root of Organization
 
             li
-                a(href="/api/organization/:id/membres") "/api/organization/id/members"-ID of organization members
+                a(href="/api/organizations/:id/membres") "/api/organization/id/members"-ID of organization members
         
+          
+
+            li User Create 
+                pre
+                    code.language-js
+                        | POST - "/api/user/create"  
+                        | 
+                        | body: {
+                        |    name: String, 
+                        |    location: {
+                        |        name: String, 
+                        |        geo: {
+                        |            lat: Number,
+                        |            long: Number
+                        |        }
+                        |    }, 
+                        |    root: 'on'|'off', 
+                        |    parent: ObjectId(User)
+                        | }
+                        | 
+                        | params: {}
+                        |
+                        | response: Object(User)
+
+            li
+                a(href="/api/user") "/api/user" - GET - user list
+
+            li
+                a(href="/api/user/:id") "/api/user/:id" - GET - Details of user 'id'
+            
+            li
+                a(href="/api/user/:id/delete", style="color:red") "/api/user/:id/delete" - POST - Delete user 'id'
+
+            li
+                a(href="/api/user/delete/all", style="color:red") "/api/user/delete/all" - GET - Delete All users
+
+
+
+            li Notice Create 
+                pre
+                    code.language-js
+                        | POST - "/api/notice/create"  
+                        | 
+                        | body: {
+                        |    name: String, 
+                        |    location: {
+                        |        name: String, 
+                        |        geo: {
+                        |            lat: Number,
+                        |            long: Number
+                        |        }
+                        |    }, 
+                        |    root: 'on'|'off', 
+                        |    parent: ObjectId(Notice)
+                        | }
+                        | 
+                        | params: {}
+                        |
+                        | response: Object(Notice)
+
+            li
+                a(href="/api/notice") "/api/notice" - GET - notice list
+
+            li
+                a(href="/api/notice/:id") "/api/notice/:id" - GET - Details of notice 'id'
+            
+            li
+                a(href="/api/notice/:id/delete", style="color:red") "/api/notice/:id/delete" - POST - Delete notice 'id'
+
+            li
+                a(href="/api/notice/delete/all", style="color:red") "/api/notice/delete/all" - GET - Delete All notice
+
+
+            li conversation Create 
+                pre
+                    code.language-js
+                        | POST - "/api/conversation/create"  
+                        | 
+                        | body: {
+                        |    name: String, 
+                        |    location: {
+                        |        name: String, 
+                        |        geo: {
+                        |            lat: Number,
+                        |            long: Number
+                        |        }
+                        |    }, 
+                        |    root: 'on'|'off', 
+                        |    parent: ObjectId(conversation)
+                        | }
+                        | 
+                        | params: {}
+                        |
+                        | response: Object(conversation)
+
+            li
+                a(href="/api/conversation") "/api/conversation" - GET - conversation list
+
+            li
+                a(href="/api/conversation/:id") "/api/conversation/:id" - GET - Details of conversation 'id'
+            
+            li
+                a(href="/api/conversation/:id/delete", style="color:red") "/api/conversation/:id/delete" - POST - Delete conversation 'id'
+
+            li
+                a(href="/api/conversation/delete/all", style="color:red") "/api/conversation/delete/all" - GET - Delete All conversation
+            li
+                a(href="/api/conversation/:id/Join") "/api/conversation/:id/Join" - GET - Join the Conversation
+
+
+            li Message Create 
+                pre
+                    code.language-js
+                        | POST - "/api/message/create"  
+                        | 
+                        | body: {
+                        |    name: String, 
+                        |    location: {
+                        |        name: String, 
+                        |        geo: {
+                        |            lat: Number,
+                        |            long: Number
+                        |        }
+                        |    }, 
+                        |    root: 'on'|'off', 
+                        |    parent: ObjectId(Message)
+                        | }
+                        | 
+                        | params: {}
+                        |
+                        | response: Object(Message)
+
+            li
+                a(href="/api/message") "/api/message" - GET - message list
+
+            li
+                a(href="/api/message/:id") "/api/message/:id" - GET - Details of message 'id'
+            
+            li
+                a(href="/api/message/:id/delete", style="color:red") "/api/message/:id/delete" - POST - Delete message 'id'
+
+            li
+                a(href="/api/message/delete/all", style="color:red") "/api/message/delete/all" - GET - Delete All message
+          
