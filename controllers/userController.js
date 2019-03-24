@@ -1,73 +1,86 @@
-var User = require('../models/user')
-var Organization = require('../models/organization')
+const User = require('../models/user')
+const Organization = require('../models/organization')
 
 // API -----
-exports.user_detail_get = (req, res) => {
-    User.findById(req.params.id).populate('organization').exec((err, result) => {
-        if (err) return res.status(500).send(err)
+exports.user_get = (req, res) => {
+	User.findById(req.params.id)
+		.populate('organization')
+		.exec((err, result) => {
+			if (err) return res.status(500).send(err)
 
-        if (result) return res.send(result)
+			if (result) return res.send(result)
 
-        return res.send('No record found for id ' + req.params.id)
-
-    })
+			return res.send('No record found for id ' + req.params.id)
+		})
 }
 
 exports.users_get = (req, res) => {
-    User.find({}, (err, result) => {
-        if (err) return res.status(500).send(err)
+	User.find({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
-        if (result) return res.send(result)
+		if (result) return res.send(result)
 
-        return res.send('No record found.')
-
-    })
+		return res.send('No record found.')
+	})
 }
 
 exports.user_create_post = (req, res) => {
-    let newuser = new User({
-        name: req.body.name,
-        phone: req.body.phone,
-        username: req.body.username,
-        password: req.body.password,
-        position: req.body.position,
-        organization: req.body.organization
-    })
-    newuser.save(err=>{
-        if (err) return res.status(500).send(err)
-        return res.send(newuser)
-    })
+	let newUser = new User({
+		name: req.body.name,
+		username: req.body.username,
+		password: req.body.password,
+		position: req.body.position,
+		organization: req.body.organization
+	})
+
+	newUser.save().exec(err => {
+		if (err) return res.status(500).send(err)
+
+		return res.send(newUser)
+	})
 }
 
+exports.users_delete_all_get = (req, res) => {
+	User.deleteMany({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
+		if (result) return res.send(result)
 
+		return res.send(false)
+	})
+}
+
+exports.user_delete_post = (req, res) => {
+	User.findByIdAndDelete(req.params.id).exec((err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
 
 // Application -----
 
-exports.user_get = (req, res) => {
-    User.find({}).populate('organization').exec((err, result) => {
-        if (err) return res.status(500).send(err)
+exports.users_view_get = (req, res) => {
+	User.find({})
+		.populate('organization')
+		.exec((err, result) => {
+			if (err) return res.status(500).send(err)
 
-        if (result) return res.render('app/user/index', {
-            users: result
-        })
+			if (result) return res.render('app/user/index', { users: result })
 
-        return res.send('No record found.')
+			return res.send('No record found.')
+		})
+}
 
-    })
-}  
+exports.user_create_view_get = (req, res) => {
+	Organization.find({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
+		if (result) return res.render('app/user/create', { organizations: result })
 
-exports.user_create_get = (req, res) => {
-    Organization.find({}, (err, result) => {
-        if (err) return res.status(500).send(err)
-
-        if (result) return res.render('app/user/create', {
-            organizations: result
-        })
-
-        return res.send('No record found.')
-
-    })
-    //- res.render('user/create')
+		return res.send('No record found.')
+	})
+	//- res.render('user/create')
 }

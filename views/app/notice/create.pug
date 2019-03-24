@@ -1,0 +1,163 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible', content='ie=edge')
+		title Create Post
+		// Compiled and minified CSS
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		// CSS
+		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+		link(href='css/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
+		link(href='airchat_org_description.css', type='text/css', rel='stylesheet', media='screen,projection')
+		style.
+			nav .container {
+			width: 95%;
+			}
+			/*form container*/
+			input[type="text"]+label {
+			pointer-events: none;
+			* {
+			pointer-events: all;
+			}
+			}
+			input[type="email"]+label {
+			pointer-events: none;
+			* {
+			pointer-events: all;
+			}
+			}
+			input[type="password"]+label {
+			pointer-events: none;
+			* {
+			pointer-events: all;
+			}
+			}
+			.btn_ctn {
+			text-align: center;
+			}
+			.or_div {
+			display: block;
+			color: gray;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			}
+			.post_btn {
+			width: 60%;
+			background-color: #01061b;
+			}
+			form .row {
+			margin: 0px !important;
+			padding-top: 0px !important;
+			padding-bottom: 0px !important;
+			}
+			input[type="text"],
+			input[type="email"],
+			input[type="password"] {
+			padding-top: 0px !important;
+			padding-bottom: 0px !important;
+			margin: 0px !important;
+			}
+			.form_head {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			margin: 0px;
+			margin-bottom: 10px;
+			}
+			.form_ctn {
+			margin-top: 40px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.329);
+			overflow: hidden;
+			border-radius: 5px;
+			}
+			form {
+			background: white;
+			border: none;
+			padding-bottom: 20px;
+			padding-left: 15px;
+			padding-right: 15px;
+			}
+			.divider {
+			margin: 10px;
+			}
+			textarea::placeholder{
+			color:rgb(160, 158, 158);
+			}
+	body
+		.navbar-fixed(style='z-index:999;')
+			nav.teal
+				.container
+					.nav-wrapper
+						a.brand-logo(href='#!') Airchat
+						a.sidenav-trigger(href='#!', data-target='mobile-demo')
+							i.material-icons menu
+						ul.right.hide-on-med-and-down
+							li
+								a(href='#!') Home
+							li
+								a(href='#!') Contacts
+							li
+								a(href='#!') Profile
+							li
+								a(href='#!') Log out
+			ul#mobile-demo.sidenav.white
+				li
+					a(href='#!') Home
+				li
+					a(href='#!') Contacts
+				li
+					a(href='#!') Profile
+				li
+					a(href='#!') Log out
+		.row
+			.col.s12.m12.l4
+			.col.s12.m12.l4
+				.form_ctn
+					.row.white-text.form_head(style='padding-top:10px;padding-bottom:10px;', align='center')
+						h4(style='color:#01061b;border-bottom: 2px solid teal;display: table-cell;', align='center') Create post
+					form(action='/api/notice/create',method="POST")
+						.row
+							.input-field
+								input#from(type='text')
+								label(for='From') User Name
+							.input-field
+								input#title.validate(type='text')
+								label(for='title') Post Title
+							.input-field
+								span(style='display:block;font-size:15px;color:grey;margin-bottom:10px;') Description: 
+
+								textarea(id='discription', style='max-height:65px;max-width:400px;', placeholder='Description here...')
+						// buttons
+						.row.btn_ctn(align='center')
+							input.btn.post_btn(type='submit', value='post')
+			.col.s12.m12.l4
+		// Scripts
+		// Compiled and minified JavaScript
+		script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
+		script.
+			function myFunction() {
+			var input, filter, ul, li, a, i, txtValue;
+			input = document.getElementById("search_par");
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("names_col");
+			li = ul.getElementsByTagName("li");
+			for (i = 0; i < li.length; i++) {
+			a = li[i].getElementsByTagName("span")[0];
+			txtValue = a.textContent || a.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			li[i].style.display = "";
+			} else {
+			li[i].style.display = "none";
+			}
+			}
+			}
+			// Or with jQuery
+			$(document).ready(function () {
+			$('.sidenav').sidenav();
+			});
+			$(document).ready(function () {
+			$('.collapsible').collapsible();
+			});

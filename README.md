@@ -29,7 +29,7 @@ Make sure you have `yarn`, `nodemon` and `gulp` installed.
 
 Note: Before running the development server, install the dependencies and build the files atleast once by running `yarn install`
 
-Run the development server and Gulp watcher using `yarn debug`
+Run the development server and Gulp watcher using `yarn dev`
 
 You can now visit the application at [`localhost:3000`](http://localhost:3000)
 

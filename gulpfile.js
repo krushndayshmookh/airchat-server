@@ -1,7 +1,7 @@
 const { src, dest, parallel, watch, series } = require('gulp');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
-var del = require("del");
+const del = require("del");
 
 function clean () {
     return del(["build"]);

@@ -1,52 +1,69 @@
-const Notice = require('../models/notices');
+const Notice = require('../models/notice')
+const moment = require('moment')
 
+exports.notice_create_post = (req, res) => {
+	let newNotice = new Notice({
+		from: req.body.from,
+		title: req.body.title,
+		body: req.body.body,
+		date: new moment()
+	})
 
-exports.notices_create_get = (req,res)=>{
-    let newnot = new Notice({
-        from:req.body.from,
-        title:req.body.title,
-        discription:req.body.discription,
-    });
-    newnot.save(err=>{
-        if (err) return res.status(500).send(err)
-        return res.send(newnot)
-    });
-    console.log(req.body);
-    console.log(newnot);
-};
+	newNotice.save().exec(err => {
+		if (err) return res.status(500).send(err)
 
-exports.notices_all_get = (req, res) => {
-    Notices.find({}, (err, result) => {
-        if (err) return res.status(500).send(err)
-
-        if (result) return res.render('app/notices/index', {
-            notices: result
-        })
-
-    })
+		return res.send(newNotice)
+	})
 }
 
+exports.notices_get = (req, res) => {
+	Notice.find({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
+
+exports.notice_get = (req, res) => {
+	Notice.findById(req.params.id).exec((err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}
 
 exports.notices_delete_all_get = (req, res) => {
-    Notices.remove({}, (err, result) => {
-        if (err) return res.status(500).send(err)
+	Notice.deleteMany({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
-        if (result) return res.send(result)
+		if (result) return res.send(result)
 
-        return res.send(false)
-
-    })
+		return res.send(false)
+	})
 }
 
+exports.notice_delete_post = (req, res) => {
+	Notice.findByIdAndDelete(req.params.id).exec((err, result) => {
+		if (err) return res.status(500).send(err)
 
-exports.notices_delete_post = (req, res) => {
-    Notices.findByIdAndRemove(req.params.id, (err, result) => {
-        if (err) return res.status(500).send(err)
+		if (result) return res.send(result)
 
-        if (result) return res.send(result)
+		return res.send(false)
+	})
+}
 
-        return res.send(false)
+// Application -----
 
-    })
+exports.notices_view_get = (req, res) => {
+	Notice.find({}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.render('app/notice/index', { notices: result })
+
+		return res.send(false)
+	})
 }
