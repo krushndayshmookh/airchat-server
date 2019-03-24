@@ -13,7 +13,7 @@ exports.message_create_post = (req, res) => {
 		}
 	})
 
-	newMessage.save().exec(err => {
+	newMessage.save(err => {
 		if (err) return res.status(500).send(err)
 
 		Conversation.findByIdAndUpdate(req.body.conversation, {
