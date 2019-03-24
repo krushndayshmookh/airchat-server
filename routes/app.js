@@ -53,6 +53,8 @@ router.get('/notices', noticeController.notices_view_get)
 // VUE -----
 router.get('/vue/organizations', (req, res) => res.render('app/organization/index-vue'))
 
+router.get('/vue/notices', (req, res) => res.render('app/notices/index_vue'))
+
 // -----
 
 

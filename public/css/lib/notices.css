@@ -1,0 +1,33 @@
+nav .container {
+width: 95%;
+}
+.card {
+padding: 5px;
+margin-top: 30px;
+margin-bottom: 20px;
+}
+.info-title {
+font-size: 24px;
+}
+#org_name {
+display: block;
+margin-bottom: 15px;
+}
+#org_heading {
+border-bottom: 2px solid rgb(6, 134, 134);
+width: auto;
+}
+.badge_creator {
+padding: 3px 6px 4px 6px;
+background: teal;
+color: white;
+font-size: 12px;
+border-radius: 5px;
+margin-left: 5px;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+background-color: rgb(4, 180, 180) !important;
+}
+.switch label input[type=checkbox]:checked+.lever {
+background-color: rgb(3, 104, 104) !important;
+}
