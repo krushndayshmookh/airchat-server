@@ -37,7 +37,7 @@ exports.notice_get = (req, res) => {
 }
 
 exports.notices_delete_all_get = (req, res) => {
-	Notice.remove({}).exec((err, result) => {
+	Notice.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -47,7 +47,7 @@ exports.notices_delete_all_get = (req, res) => {
 }
 
 exports.notice_delete_post = (req, res) => {
-	Notice.findByIdAndRemove(req.params.id).exec((err, result) => {
+	Notice.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)

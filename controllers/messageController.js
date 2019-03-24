@@ -51,7 +51,7 @@ exports.message_get = (req, res) => {
 }
 
 exports.messages_delete_all_get = (req, res) => {
-	Message.remove({}).exec((err, result) => {
+	Message.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -61,7 +61,7 @@ exports.messages_delete_all_get = (req, res) => {
 }
 
 exports.message_delete_post = (req, res) => {
-	Message.findByIdAndRemove(req.params.id).exec((err, result) => {
+	Message.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)

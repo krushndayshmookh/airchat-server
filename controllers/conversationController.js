@@ -58,7 +58,7 @@ exports.conversation_get = (req, res) => {
 }
 
 exports.conversations_delete_all_get = (req, res) => {
-	Conversation.remove({}).exec((err, result) => {
+	Conversation.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -68,7 +68,7 @@ exports.conversations_delete_all_get = (req, res) => {
 }
 
 exports.conversation_delete_post = (req, res) => {
-	Conversation.findByIdAndRemove(req.params.id).exec((err, result) => {
+	Conversation.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)

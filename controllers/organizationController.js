@@ -70,7 +70,7 @@ exports.organization_create_post = (req, res) => {
 }
 
 exports.organizations_delete_all_get = (req, res) => {
-	Organization.remove({}).exec((err, result) => {
+	Organization.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -80,7 +80,7 @@ exports.organizations_delete_all_get = (req, res) => {
 }
 
 exports.organization_delete_post = (req, res) => {
-	Organization.findByIdAndRemove(req.params.id).exec((err, result) => {
+	Organization.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)

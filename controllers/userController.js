@@ -41,7 +41,7 @@ exports.user_create_post = (req, res) => {
 }
 
 exports.users_delete_all_get = (req, res) => {
-	User.remove({}).exec((err, result) => {
+	User.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
@@ -51,7 +51,7 @@ exports.users_delete_all_get = (req, res) => {
 }
 
 exports.user_delete_post = (req, res) => {
-	User.findByIdAndRemove(req.params.id).exec((err, result) => {
+	User.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
 
 		if (result) return res.send(result)
