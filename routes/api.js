@@ -4,6 +4,7 @@ const router = express.Router()
 // Home page -----
 
 router.get('/', (req, res) => res.render('api/index'))
+router.get('/docs', (req, res) => res.render('api/docs/index'))
 
 // -----
 
