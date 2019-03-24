@@ -65,6 +65,20 @@ router.post('/notice/:id/delete', noticeController.notice_delete_post)
 
 // -----
 
+const conversationController = require('../controllers/conversationController')
+
+router.post('/conversation/create', conversationController.conversation_create_post)
+
+router.get('/conversation/:id', conversationController.conversation_get)
+
+router.get('/conversations', conversationController.conversations_get)
+
+router.get('/conversations/delete/all', conversationController.conversations_delete_all_get)
+
+router.post('/conversation/:id/delete', conversationController.conversation_delete_post)
+
+// -----
+
 const messageController = require('../controllers/messageController')
 
 router.post('/message/create', messageController.message_create_post)
