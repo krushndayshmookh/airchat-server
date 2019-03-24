@@ -76,3 +76,17 @@ exports.conversation_delete_post = (req, res) => {
 		return res.send(false)
 	})
 }
+
+exports.conversation_join_post = (req, res) => {
+	Conversation.findByIdAndUpdate(req.params.id, {
+		$push: {
+			users: req.body.user
+		}
+	}).exec((err, result) => {
+		if (err) return res.status(500).send(err)
+
+		if (result) return res.send(result)
+
+		return res.send(false)
+	})
+}

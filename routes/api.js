@@ -77,6 +77,8 @@ router.get('/conversations/delete/all', conversationController.conversations_del
 
 router.post('/conversation/:id/delete', conversationController.conversation_delete_post)
 
+router.post('/conversation/:id/join', conversationController.conversation_join_post)
+
 // -----
 
 const messageController = require('../controllers/messageController')
