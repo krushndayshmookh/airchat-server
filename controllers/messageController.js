@@ -40,26 +40,6 @@ exports.messages_get = (req, res) => {
 	})
 }
 
-exports.messages_from_user_get = (req, res) => {
-	Message.find({ from: req.params.from }).exec((err, result) => {
-		if (err) return res.status(500).send(err)
-
-		if (result) return res.send(result)
-
-		return res.send(false)
-	})
-}
-
-exports.messages_to_user_get = (req, res) => {
-	Message.find({ to: req.params.to }).exec((err, result) => {
-		if (err) return res.status(500).send(err)
-
-		if (result) return res.send(result)
-
-		return res.send(false)
-	})
-}
-
 exports.message_get = (req, res) => {
 	Message.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
