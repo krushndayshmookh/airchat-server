@@ -14,6 +14,18 @@ exports.organization_get = (req, res) => {
 		})
 }
 
+exports.organization_suborgs_get = (req, res) => {
+	Organization.findById(req.params.id)
+		.populate('suborgs')
+		.exec((err, result) => {
+			if (err) return res.status(500).send(err)
+
+			if (result) return res.send(result.suborgs)
+
+			return res.send(false)
+		})
+}
+
 exports.organizations_get = (req, res) => {
 	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)

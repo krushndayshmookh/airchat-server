@@ -25,11 +25,14 @@ router.post('/organization/:id/delete', organizationController.organization_dele
 // GET request for all organizations.
 router.get('/organizations', organizationController.organizations_get)
 
+// GET request for deleting all organizations.
+router.get('/organizations/delete/all', organizationController.organizations_delete_all_get)
+
 // GET request for all root organizations.
 router.get('/organizations/root', organizationController.organizations_root_get)
 
-// GET request for deleting all organizations.
-router.get('/organizations/delete/all', organizationController.organizations_delete_all_get)
+// GET request for all suborganizations.
+router.get('/organizations/:id', organizationController.organization_suborgs_get)
 
 // GET request for organization members.
 router.get('/organization/:id/members', organizationController.organization_members_get)
