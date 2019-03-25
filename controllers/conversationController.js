@@ -1,6 +1,7 @@
 const Conversation = require('../models/conversation')
 const moment = require('moment')
 
+// CREATE POST
 exports.conversation_create_post = (req, res) => {
 	let newConversation = new Conversation({
 		name: req.body.name,
@@ -17,6 +18,7 @@ exports.conversation_create_post = (req, res) => {
 	})
 }
 
+// GET CONVERSATIONS
 exports.conversations_get = (req, res) => {
 	Conversation.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -27,6 +29,7 @@ exports.conversations_get = (req, res) => {
 	})
 }
 
+// GET CONVERSATIONS FROM USER
 exports.conversations_from_user_get = (req, res) => {
 	Conversation.find({ from: req.params.from }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -37,6 +40,7 @@ exports.conversations_from_user_get = (req, res) => {
 	})
 }
 
+// GET CONVERSATIONS TO USER
 exports.conversations_to_user_get = (req, res) => {
 	Conversation.find({ to: req.params.to }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -47,6 +51,7 @@ exports.conversations_to_user_get = (req, res) => {
 	})
 }
 
+// GET ALL CONVERSATIONS
 exports.conversation_get = (req, res) => {
 	Conversation.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -57,6 +62,7 @@ exports.conversation_get = (req, res) => {
 	})
 }
 
+// DELETE ALL CONVERSATIONS
 exports.conversations_delete_all_get = (req, res) => {
 	Conversation.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -67,6 +73,7 @@ exports.conversations_delete_all_get = (req, res) => {
 	})
 }
 
+// DELETE POST 
 exports.conversation_delete_post = (req, res) => {
 	Conversation.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -77,6 +84,7 @@ exports.conversation_delete_post = (req, res) => {
 	})
 }
 
+// JOIN POST
 exports.conversation_join_post = (req, res) => {
 	Conversation.findByIdAndUpdate(req.params.id, {
 		$push: {
