@@ -40,7 +40,7 @@ exports.conversations_from_user_get = (req, res) => {
 	})
 }
 
-// GET CONVERSATIONS TO USER
+// GET ALL CONVERSATIONS 
 exports.conversations_to_user_get = (req, res) => {
 	Conversation.find({ to: req.params.to }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -51,7 +51,7 @@ exports.conversations_to_user_get = (req, res) => {
 	})
 }
 
-// GET ALL CONVERSATIONS
+// GET CONVERSATIONS BY iD
 exports.conversation_get = (req, res) => {
 	Conversation.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
