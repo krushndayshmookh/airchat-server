@@ -2,6 +2,7 @@ const User = require('../models/user')
 const Organization = require('../models/organization')
 
 // API -----
+// GET USER BY ID
 exports.user_get = (req, res) => {
 	User.findById(req.params.id)
 		.populate('organization')
@@ -14,6 +15,7 @@ exports.user_get = (req, res) => {
 		})
 }
 
+// GET ALL USERS
 exports.users_get = (req, res) => {
 	User.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -24,6 +26,7 @@ exports.users_get = (req, res) => {
 	})
 }
 
+// CREATE POST
 exports.user_create_post = (req, res) => {
 	let newUser = new User({
 		name: req.body.name,
@@ -40,6 +43,7 @@ exports.user_create_post = (req, res) => {
 	})
 }
 
+// DELETE ALL USERS
 exports.users_delete_all_get = (req, res) => {
 	User.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -50,6 +54,7 @@ exports.users_delete_all_get = (req, res) => {
 	})
 }
 
+// DELETE POST BY ID 
 exports.user_delete_post = (req, res) => {
 	User.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -62,6 +67,7 @@ exports.user_delete_post = (req, res) => {
 
 // Application -----
 
+// VIEW ALL USERS
 exports.users_view_get = (req, res) => {
 	User.find({})
 		.populate('organization')
@@ -73,7 +79,7 @@ exports.users_view_get = (req, res) => {
 			return res.send('No record found.')
 		})
 }
-
+// CREATE USER VIEW
 exports.user_create_view_get = (req, res) => {
 	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
