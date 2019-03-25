@@ -1,6 +1,7 @@
 const Notice = require('../models/notice')
 const moment = require('moment')
 
+// CREATE NOTICE
 exports.notice_create_post = (req, res) => {
 	let newNotice = new Notice({
 		from: req.body.from,
@@ -16,6 +17,7 @@ exports.notice_create_post = (req, res) => {
 	})
 }
 
+// GET ALL NOTICES
 exports.notices_get = (req, res) => {
 	Notice.find({}).populate('from').exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -26,6 +28,7 @@ exports.notices_get = (req, res) => {
 	})
 }
 
+// GET NOTICE BY ID
 exports.notice_get = (req, res) => {
 	Notice.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -36,6 +39,7 @@ exports.notice_get = (req, res) => {
 	})
 }
 
+// DELETE ALL NOTICES 
 exports.notices_delete_all_get = (req, res) => {
 	Notice.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -46,6 +50,7 @@ exports.notices_delete_all_get = (req, res) => {
 	})
 }
 
+// DELETE NOTICE BY ID
 exports.notice_delete_post = (req, res) => {
 	Notice.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -58,6 +63,7 @@ exports.notice_delete_post = (req, res) => {
 
 // Application -----
 
+// VIEW ALL NOTICES
 exports.notices_view_get = (req, res) => {
 	Notice.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
