@@ -2,6 +2,7 @@ const Organization = require('../models/organization')
 const User = require('../models/user')
 
 // API -----
+// GET ORGANISATIONS BY ID
 exports.organization_get = (req, res) => {
 	Organization.findById(req.params.id)
 		.populate('suborgs')
@@ -14,6 +15,7 @@ exports.organization_get = (req, res) => {
 		})
 }
 
+// GET ORGANISATIONS' SUBORGANISATION BY ID
 exports.organization_suborgs_get = (req, res) => {
 	Organization.findById(req.params.id)
 		.populate('suborgs')
@@ -26,6 +28,7 @@ exports.organization_suborgs_get = (req, res) => {
 		})
 }
 
+// GET ALL ORGANISATIONS 
 exports.organizations_get = (req, res) => {
 	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -36,6 +39,7 @@ exports.organizations_get = (req, res) => {
 	})
 }
 
+// GET CONVERSATIONS BY ROOT
 exports.organizations_root_get = (req, res) => {
 	Organization.find({ root: true }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -46,6 +50,7 @@ exports.organizations_root_get = (req, res) => {
 	})
 }
 
+// CREATE POST
 exports.organization_create_post = (req, res) => {
 	let neworg = new Organization({
 		name: req.body.name,
@@ -81,6 +86,7 @@ exports.organization_create_post = (req, res) => {
 	})
 }
 
+// DELETE ALL ORGANISATIONS
 exports.organizations_delete_all_get = (req, res) => {
 	Organization.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -90,7 +96,7 @@ exports.organizations_delete_all_get = (req, res) => {
 		return res.send(false)
 	})
 }
-
+// DELETE POST 
 exports.organization_delete_post = (req, res) => {
 	Organization.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -100,7 +106,7 @@ exports.organization_delete_post = (req, res) => {
 		return res.send(false)
 	})
 }
-
+// GET ALL MEMBERS
 exports.organization_members_get = (req, res) => {
 	User.find({ organization: req.params.id }).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -113,6 +119,7 @@ exports.organization_members_get = (req, res) => {
 
 // Application -----
 
+// VIEW CREATED ORGANISATION
 exports.organization_create_view_get = (req, res) => {
 	Organization.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
