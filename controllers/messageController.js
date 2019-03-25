@@ -2,6 +2,7 @@ const Message = require('../models/message')
 const Conversation = require('../models/conversation')
 const moment = require('moment')
 
+// CREATE MESSAGE
 exports.message_create_post = (req, res) => {
 	let newMessage = new Message({
 		user: req.body.user,
@@ -30,6 +31,7 @@ exports.message_create_post = (req, res) => {
 	})
 }
 
+// GET ALL MESSAGES
 exports.messages_get = (req, res) => {
 	Message.find({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -40,6 +42,7 @@ exports.messages_get = (req, res) => {
 	})
 }
 
+// GET MESSAGES BY ID
 exports.message_get = (req, res) => {
 	Message.findById(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -50,6 +53,7 @@ exports.message_get = (req, res) => {
 	})
 }
 
+// DELETE ALL MESSAGES
 exports.messages_delete_all_get = (req, res) => {
 	Message.deleteMany({}).exec((err, result) => {
 		if (err) return res.status(500).send(err)
@@ -60,6 +64,7 @@ exports.messages_delete_all_get = (req, res) => {
 	})
 }
 
+// DELETE MESSAGE BY ID
 exports.message_delete_post = (req, res) => {
 	Message.findByIdAndDelete(req.params.id).exec((err, result) => {
 		if (err) return res.status(500).send(err)
