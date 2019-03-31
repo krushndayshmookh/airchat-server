@@ -9,8 +9,16 @@ block content
 
     section#organizations
         .container
+            nav
+                .nav-wrapper
+                    .col.s12
+                        a.breadcrumb(v-for='p in path' @click='updateOrganizations(p)') {{p}}
+            h3 Suborganisations
             .collection
                 a.collection-item(v-for='organization in organizations' @click='updateOrganizations(organization._id)') {{organization.name}}
+            h3 Members            
+            .collection
+                a.collection-item(v-for='member in members' @click='') {{member.name}}
 
 block scripts
     script(src="/js/init/organizations.index.js")
