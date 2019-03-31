@@ -22,6 +22,10 @@ block content
 								p {{ notice.body }}
 								p Posted by: {{ notice.from.name }}
 								p Posted at: {{ notice.date }}
+								p
+									a.btn(@click="deleteNotice(notice._id)")
+										i.material-icons.center.red-text close
+
 
 
 

@@ -23,3 +23,22 @@ const updateNotice = () => {
 			noticesVue.notices = notices
 		})
 }
+
+const deleteNotice = id => {
+	// console.log(id)
+
+	let path = '/api/notice/'+id+'/delete'
+
+	if (confirm("Confirm DELETE?"))	{
+
+		fetch(path, {method: 'POST'})
+			.then(response => response.json())
+			.then(response => {
+				
+				if (!response) M.toast({html:"ERROR"})
+				
+				updateNotice()
+				
+			})
+	}
+}
