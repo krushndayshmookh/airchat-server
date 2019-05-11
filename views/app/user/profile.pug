@@ -9,7 +9,7 @@ block title
 
 block content
 
-    .row.center
+    .row.center.hide-on-med-and-up
         .col.s12
             .card-panel.z-depth-4.bg-profile(style="margin-top:10%;border-radius:10px")
                 .center
@@ -31,3 +31,27 @@ block content
                 .row
                     p.center(style="margin-bottom:0")   Fullname
                     h3.center(style="margin-top:0")   Charles Merwin
+
+
+
+    .row.hide-on-small-only(style="margin-top:3%")    
+        .container
+            .col.s3.center
+                img.responsive-img.circle.materialboxed(src="/images/face.png", alt="")
+            .col.s8
+                .left
+                    h3.strong.valign-wrapper Charles Merwin    
+                    h5.center
+                        | @charlesmerwin
+                    p
+                        |   Working as POSITION at ORGANIZATION
+                    .row(style="margin-top:10%")
+                        .center
+                        .col.s4.center
+                            i.material-icons.color-primary.small mail_outline
+                        .col.s4.center
+                            i.material-icons.small.color-primary call
+                        .col.s4.center
+                                i.material-icons.small.color-primary message
+                .right
+                    i.material-icons.color-primary edit
