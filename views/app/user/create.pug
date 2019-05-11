@@ -1,7 +1,7 @@
 extend ../components/layout.pug
 
 block styles
-    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Quicksand', rel='stylesheet')
     link(rel="stylesheet", href="/css/organization.css")
 
 block title
@@ -9,42 +9,79 @@ block title
 
 block content
 
-    .row
-        .col.s12.l4.push-l4
-            .card-panel
+    .row.center
+        .col.s12.l6.push-l3
+            .card-panel.z-depth-4(style="margin-top:10%;border-radius:30px;")
                 
                 h3.light.center Airchat
                 h5.light.center Create User
         
-                .row
+                .row.hide-on-med-and-down
                     form.col.s12(action="/api/user/create", method="post")
                         .row
-                            .input-field.col.s12
-                                label(for="name") Name
-                                input#name(type="text", name="name")
+                            .col.s6
+                                .input-field.col.s12
+                                    label(for="name") Name
+                                    input#name(type="text", name="name")
 
-                            .input-field.col.s12
-                                label(for="phone") Phone
-                                input#phone(type="number", name="phone")
+                                .input-field.col.s12
+                                    label(for="position") Position
+                                    input#position(type="text", name="position")
 
-                            .input-field.col.s12
-                                label(for="username") Username
-                                input#username(type="text", name="username")
+                                .input-field.col.s12
+                                    label(for="username") Username
+                                    input#username(type="text", name="username")
 
-                            .input-field.col.s12
-                                label(for="password") Password
-                                input#password(type="password", name="password")
+                            .col.s6
+                                .input-field.col.s12
+                                    label(for="phone") Phone
+                                    input#phone(type="text", name="phone")
 
-                            .input-field.col.s12
-                                label(for="position") Position
-                                input#position(type="text", name="position")
+                                .input-field.col.s12
+                                    select#organization(name="organization")
+                                        each organization in organizations
+                                            option(value=''+organization._id) #{organization.name}
+                                    label Organization
 
-                            .input-field.col.s12
-                                select#organization(name="organization")
-                                    each organization in organizations
-                                        option(value=''+organization._id) #{organization.name}
-                                label Organization
+                                .input-field.col.s12
+                                    label(for="password") Password
+                                    input#password(type="password", name="password")
                                 
 
                             .col.s12.center
+                                button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
+
+
+                .row.hide-on-large-only
+                    form.col.s12(action="/api/user/create", method="post")
+                        .row
+                            .container
+                                .input-field.col.s12
+                                    label(for="name") Name
+                                    input#name(type="text", name="name")
+
+                                .input-field.col.s12
+                                    label(for="position") Position
+                                    input#position(type="text", name="position")
+
+                                .input-field.col.s12
+                                    label(for="username") Username
+                                    input#username(type="text", name="username")
+
+                            
+                                .input-field.col.s12
+                                    label(for="phone") Phone
+                                    input#phone(type="text", name="phone")
+
+                                .input-field.col.s12
+                                    select#organization(name="organization")
+                                        each organization in organizations
+                                            option(value=''+organization._id) #{organization.name}
+                                    label Organization
+
+                                .input-field.col.s12
+                                    label(for="password") Password
+                                    input#password(type="password", name="password")
+                                
+                            .col.s12.center(style="margin-top:2%")
                                 button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit

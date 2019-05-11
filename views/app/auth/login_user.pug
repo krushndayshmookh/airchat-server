@@ -1,61 +1,42 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    title Login here
-    // Compiled and minified CSS
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
-    // CSS
-    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
-    link(href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection")
-    link(href="/css/lib/airchat_login.css" rel="stylesheet" media="screen,projection")
-    
-  body
-    nav.teal
-      .container
-        .nav-wrapper
-          a.brand-logo(href="#!") Airchat
-          ul.right.hide-on-small-only
-            li
-              a.btn.login_btn_nav(href="airchat_signup.pug") SIGN-UP
-    .container.log_form_ctn
-      .row
-        .col.s12.m12.l4
-          // Extra space
-        .col.s12.m12.l4
-          .form_ctn
-            .row.white-text.form_head
-              .col.s12
-                h3 Airchat
-            // form
-            form(action="#!")
-              .row
-                .input-field.col.s12
-                  input#user_name(type="text")
-                  label(for="user-name") Username
-              .row
-                .input-field.col.s12
-                  input#pas_wrd(type="password")
-                  label(for="password") Password
-              // buttons
-              .row.btn_ctn
-                input.btn.signup_btn(type="submit" value="LOGIN")
-                .divider  
+extend ../components/layout.pug
+
+block styles
+    link(href='https://fonts.googleapis.com/css?family=Quicksand', rel='stylesheet')
+    link(rel="stylesheet", href="/css/organization.css")
+
+block title
+    title Login User | AirChat
+
+block content
+
+	
+    .row.center
+        .col.l6.center.hide-on-small-only
+            img(src="/images/logo.png", alt="", width="300", style="margin-top:20%")
+
+        .col.s12.l6
+            .card-panel.z-depth-4(style="margin-top:10%;border-radius:30px;")
+                
+                h3.light.center Airchat
+                h5.light.center Login User
+        
                 .row
-                  .col.s12(align="right")
-                    a(href="#!" style="font-size:11px;") Forgot Password?
-                .divider  
-                span.or_div(align="center") -OR-
-                a.btn.signup_btn(href="airchat_signup.pug") Signup
-        .col.s12.m12.l4
-          // Extra space
-    // Scripts
-    // Compiled and minified JavaScript
-    script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
-    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
-    script(src="js/materialize.js")
-    script(src="js/init.js")
+                    form.col.s12(action="/api/user/create", method="post")
+                        .container
+                          .row
+                              .col.s12
+                                  
+                                  .input-field.col.s12
+                                      label(for="username") Username
+                                      input#username(type="text", name="username")
+
+                                  .input-field.col.s12
+                                      label(for="password") Password
+                                      input#password(type="password", name="password")
+
+                                  .right
+                                      a(href="#") Forgot Password?                                  
+
+                              .col.s12.center(style="margin-top:10%")
+                                  button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
+
