@@ -1,12 +1,16 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Users
-    body
-        ul
-            each user in users
-                li 
-                    a(href="/api/user/"+user._id) #{user.name} - #{user.position} - #{user.organization.name}
-                    
+extend ../components/layout.pug
+
+block styles
+
+block title
+    title Users | AirChat
+
+block content
+
+    section#users
+        .container
+            .collection
+                a.collection-item(v-for='user in users' @click='updateUsers(user._id)') {{user.name}}
+
+block scripts
+    script(src="/js/init/users.index.js")
