@@ -17,10 +17,18 @@ block content
         .col.s12.l6.m6
             .container
                 .card-panel.z-depth-4(style="margin-top:10%;border-radius:30px;")
-       
+                    h3.center
+                        |    Usernames
                     ul
                         each user in users
                             li 
                                 a(href="/api/user/"+user._id) #{user.name} 
                                 //- - #{user.position} - #{user.organization.name}
                                 
+//-     section#users
+//-         .container
+//-             .collection
+//-                 a.collection-item(v-for='user in users' @click='updateUsers(user._id)') {{user.name}}
+
+//- block scripts
+//-     script(src="/js/init/users.index.js")
