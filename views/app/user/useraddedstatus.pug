@@ -24,11 +24,26 @@ block content
                         |  Name: #{newUser.name} 
                     p.black-text
                         |   Position:  #{newUser.position}
-                        br
-                        |   Organization:    #{newUser.organization.name} 
-                        br
-                        |   Phone Number:   #{newUser.phone}
+                        //- br
+                        //- |   Organization:    #{newUser.organization.name} 
+                        //- br
+                        //- |   Phone Number:   #{newUser.phone}
                         br
                         |   Username:   #{newUser.username} 
+
+                .center
+
+                    .row
+                        .col.s6
+                            a.waves-effect.waves-light.btn.bg-primary(style="border-radius:25px",href="/user/create")
+                                i.material-icons.left add_circle_outline
+                                | Add Other User
+                        .col.s6
+                            a.waves-effect.waves-light.btn.bg-primary(style="border-radius:25px",href="/")
+                                i.material-icons.left adjust
+                                | Home
+                    
+
+
             
                         
