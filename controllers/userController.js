@@ -39,7 +39,7 @@ exports.user_create_post = (req, res) => {
   newUser.save(err => {
     if (err) return res.status(500).send(err);
 
-    return res.send(newUser);
+    return res.render("app/user/useraddedstatus", { newUser });
   });
 };
 
