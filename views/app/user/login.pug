@@ -18,11 +18,11 @@ block content
                 h5.light.center Login
         
                 .row
-                    form.col.s12(action="/api/user/create", method="post")
+                    form.col.s12(action="/api/user/login", method="post")
                         .row
                             .input-field.col.s12
-                                label(for="phone or username") Phone or Username
-                                input#phone(type="text", name="phone or username")
+                                label(for="username") Username
+                                input#username(type="text", name="username")
 
                             .input-field.col.s12
                                 label(for="password") Password
