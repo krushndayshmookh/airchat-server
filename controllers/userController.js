@@ -35,12 +35,30 @@ exports.user_create_post = (req, res) => {
     position: req.body.position,
     organization: req.body.organization
   });
-
+  console.log(newUser);
   newUser.save(err => {
     if (err) return res.status(500).send(err);
 
     return res.render("app/user/useraddedstatus", { newUser });
   });
+};
+
+//Login
+exports.user_login_post = (req, res) => {
+  var oldUser = new User({
+    username: req.body.username,
+    password: req.body.password
+  });
+  console.log(oldUser);
+  User.findById(req.params.id)
+    .populate("organization")
+    .exec((err, result) => {
+      if (err) return res.status(500).send(err);
+
+      if (result) return res.send("fpund");
+
+      return res.send("No record found for id " + req.params.id);
+    });
 };
 
 // DELETE ALL USERS
