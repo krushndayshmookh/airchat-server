@@ -50,15 +50,23 @@ exports.user_login_post = (req, res) => {
     password: req.body.password
   });
   console.log(oldUser);
-  User.findById(req.params.id)
-    .populate("organization")
-    .exec((err, result) => {
-      if (err) return res.status(500).send(err);
+  User.findOne({ name: req.body.username }, function(err, user) {
+    if (user === null) {
+      res.end("Login invalid");
+    } else if (
+      user.name === req.body.username &&
+      user.pass === req.body.password
+    ) {
+      res.send("found Finally");
+    } else {
+      console.log("Credentials wrong");
+      res.end("Login invalid");
+    }
 
-      if (result) return res.send("fpund");
-
-      return res.send("No record found for id " + req.params.id);
-    });
+    // if (err) return res.status(500).send(err);
+    // if (result) return res.send(result);
+    // return res.send("No record found.");
+  });
 };
 
 // DELETE ALL USERS
