@@ -45,7 +45,6 @@ exports.user_create_post = (req, res) => {
 
 //Login
 exports.user_login_post = (req, res) => {
-  
   User.findOne({ username: req.body.username }, function(err, user) {
     if (user === null) {
       res.end("Login invalid");
@@ -53,7 +52,7 @@ exports.user_login_post = (req, res) => {
       user.username === req.body.username &&
       user.password === req.body.password
     ) {
-      res.send("found Finally");
+      return res.render("app/chat/chat");
     } else {
       console.log("Credentials wrong");
       res.end("Login invalid");
