@@ -45,17 +45,13 @@ exports.user_create_post = (req, res) => {
 
 //Login
 exports.user_login_post = (req, res) => {
-  var oldUser = new User({
-    username: req.body.username,
-    password: req.body.password
-  });
-  console.log(oldUser);
-  User.findOne({ name: req.body.username }, function(err, user) {
+  
+  User.findOne({ username: req.body.username }, function(err, user) {
     if (user === null) {
       res.end("Login invalid");
     } else if (
-      user.name === req.body.username &&
-      user.pass === req.body.password
+      user.username === req.body.username &&
+      user.password === req.body.password
     ) {
       res.send("found Finally");
     } else {
