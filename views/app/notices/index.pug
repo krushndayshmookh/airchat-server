@@ -1,6 +1,9 @@
 extend ../components/layout.pug
 
 block styles
+	//- link(href='https://fonts.googleapis.com/css?family=Quicksand', rel='stylesheet')
+	link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300")
+	link(rel="stylesheet", href="/css/organization.css")
 
 block title
 	title Bulletin Board | AirChat
@@ -9,25 +12,47 @@ block content
 
 	section#notices
 		.container
-			h4.center Bulletin Board
+			h4.center.mont(style="margin:5% 0% 5% 0%") Notice Board
 
-			.row
-				.col.s12
-					ul.collapsible
-					
-						li(v-for="notice in notices")
-							.collapsible-header {{ notice.title }}
+			.card-panel.z-depth-4(style="border-radius:30px")
+				.card-panel.z-depth-2.modal-trigger(href="#modaldetails")(v-for="notice in notices")(style="border-radius:30px")
+					h5.mont.strong(style="padding:0;margin:0;text-align:left") 
+						|	{{ notice.title }}					
+			
 
-							.collapsible-body
-								p {{ notice.body }}
-								p Posted by: {{ notice.from.name }}
-								p Posted at: {{ notice.date }}
-								p
-									a.btn(@click="deleteNotice(notice._id)")
-										i.material-icons.center.red-text close
+		
+		//- .modal#modaldetails
+			.modal-content
+				p {{ notice.body }}
+				p A bunch of text
+			.modal-footer
+				a.modal-close.waves-effect.waves-green.btn-flat(href='#!') Agree
+
+			//- .row
+				.col.s12.center
+					.card-panel(style="margin-top:5%;border-radius:30px;")
+						ul.collapsible(v-for="notice in notices")(style="border-radius:30px")
+						
+							li(style="border-radius:30px;")
+								.collapsible-header.center(style="border-radius:30px")
+									.left
+										h4.center(style="padding:0;margin:0") 
+											|	{{ notice.title }}									
+										p.center(style="padding:0;margin:0") 
+											
+											img.responsive-img.circle(src="/images/face.png", alt="",width="30")
+											|	 {{ notice.from.name }} 
+								.collapsible-body
+									p {{ notice.body }}
+									p.right Posted by: {{ notice.from.name }} |{{ notice.date }}
+									p
+										a.btn(@click="deleteNotice(notice._id)")
+											i.material-icons.center.red-text close
 
 
 
+	a.btn-floating.btn-large.waves-effect.waves-light.red.right
+		i.material-icons add
 
 
 
