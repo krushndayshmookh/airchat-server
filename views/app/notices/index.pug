@@ -10,36 +10,37 @@ block title
 	title Bulletin Board | AirChat
 
 block content
-	.row(style="background:#F9C947")
-		
-		.col.s12.m4.l3
-			.sticky
-				img(src="/images/quote.png", alt="", width="400")
-		.col.s12.m8.l9
-			section#notices
-				.container
-					h3.center.mont.white-text.sticky-notice Notice Board		
-					.card-panel.z-depth-4(style="border-radius:30px;height: 65vh;width: 110vh;overflow-y: scroll;")
-						.card-panel.z-depth-2.center(v-for="notice in notices")(style="border-radius:30px")
-							h5.center.mont.strong(style="padding:0;margin:0;") 
-								|	{{ notice.title }}					
-							p.mont
-								|	{{notice.body}}
-							.footer-copyright
-								.row
-									.col.s6
-										p.mont(style="text-align:left")
-											|	Posted by: {{notice.from.name}}  |  {{notice.date}}
-									.col.s6
-										p(style="text-align:right;margin:0px")
-											//- a.btn(@click="deleteNotice(notice._id)")
-												i.material-icons.center.red-text.circle delete
-											a.btn-floating.btn-large.waves-effect.waves-light.right(@click="deleteNotice(notice._id)")(style="background:#5777F7")
-												i.material-icons delete
-										
+	section
+		.row(style="background:#F9C947")
+			
+			.col.s12.m4.l3.hide-on-small-only
+				.sticky
+					img(src="/images/quote.png", alt="", width="400")
+			.col.s12.m8.l9
+				section#notices
+					.container
+						h3.center.mont.white-text.sticky-notice Notice Board		
+						.card-panel.z-depth-4(style="border-radius:30px;height: 65%;width: 110%;overflow-y: scroll;")
+							.card-panel.z-depth-2.center(v-for="notice in notices")(style="border-radius:30px")
+								h5.center.mont.strong(style="padding:0;margin:0;") 
+									|	{{ notice.title }}					
+								p.mont
+									|	{{notice.body}}
+								.footer-copyright
+									.row
+										.col.s6
+											p.mont(style="text-align:left")
+												|	Posted by: {{notice.from.name}}  |  {{notice.date}}
+										.col.s6
+											p(style="text-align:right;margin:0px")
+												//- a.btn(@click="deleteNotice(notice._id)")
+													i.material-icons.center.red-text.circle delete
+												a.btn-floating.btn-large.waves-effect.waves-light.right(@click="deleteNotice(notice._id)")(style="background:#5777F7")
+													i.material-icons delete
+											
 
-	a.btn-floating.btn-large.waves-effect.waves-light.right(href="/notices/create",style="background:#5777F7")
-		i.material-icons add
+		a.btn-floating.btn-large.waves-effect.waves-light.right(href="/notices/create",style="background:#5777F7")
+			i.material-icons add
 
 
 
