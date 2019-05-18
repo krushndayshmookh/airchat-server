@@ -1,6 +1,7 @@
 extend ../components/layout.pug
 
 block styles
+    link(rel="stylesheet", href="/css/organization.css")
 
 block title
     title Organizations | AirChat
@@ -8,17 +9,20 @@ block title
 block content
 
     section#organizations
-        .container
-            nav
-                .nav-wrapper
-                    .col.s12
-                        a.breadcrumb(v-for='p in path' @click='updateOrganizations(p)') {{p}}
-            h3 Suborganisations
-            .collection
+        nav.z-depth-0
+            .nav-wrapper
+                .col.s12
+                    a.breadcrumb(v-for='p in path' @click='updateOrganizations(p)') {{p}}
+            //- h3 Suborganisations
+            //- .collection
                 a.collection-item(v-for='organization in organizations' @click='updateOrganizations(organization._id)') {{organization.name}}
-            h3 Members            
+        .suborganizations
+            a.suborganization(v-for='organization in organizations' @click='updateOrganizations(organization._id)')
+                .card-panel.truncate.valign-wrapper.center {{organization.name}}
+        //- h3 Members            
+        .container
             .collection
-                a.collection-item(v-for='member in members' @click='') {{member.name}}
+                a.collection-item(v-for='member in members' href='/user') {{member.name}}
 
 block scripts
     script(src="/js/init/organizations.index.js")
