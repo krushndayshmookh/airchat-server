@@ -11,24 +11,33 @@ block title
 
 block content
 	.row(style="background:#F9C947")
-		h3.center.mont.white-text(style="margin:3% 0% 3% 0%") Notice Board		
+		
 		.col.s12.m4.l3
-			img(src="/images/quote.png", alt="", width="400")
+			.sticky
+				img(src="/images/quote.png", alt="", width="400")
 		.col.s12.m8.l9
 			section#notices
 				.container
-					.card-panel.z-depth-4(style="border-radius:30px")
+					h3.center.mont.white-text.sticky-notice Notice Board		
+					.card-panel.z-depth-4(style="border-radius:30px;height: 65vh;width: 110vh;overflow-y: scroll;")
 						.card-panel.z-depth-2.center(v-for="notice in notices")(style="border-radius:30px")
 							h5.center.mont.strong(style="padding:0;margin:0;") 
 								|	{{ notice.title }}					
 							p.mont
 								|	{{notice.body}}
+						//- Timepass data
+						//- p.mont
+							|	m. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum dom. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit. Lorem ipsum do
 							
 
-				
+	a.btn-floating.btn-large.waves-effect.waves-light(href="/notices/create",style="background:#5777F7")
+		i.material-icons add
 
-			
-		
+
+
+block scripts
+	script(src="/js/init/bulletin.index.js")
+
 				//- .row
 					.col.s12.center
 						.card-panel(style="margin-top:5%;border-radius:30px;")
@@ -49,13 +58,3 @@ block content
 										p
 											a.btn(@click="deleteNotice(notice._id)")
 												i.material-icons.center.red-text close
-
-
-
-	a.btn-floating.btn-large.waves-effect.waves-light.red.right(href="/notices/create")
-		i.material-icons add
-
-
-
-block scripts
-	script(src="/js/init/bulletin.index.js")
