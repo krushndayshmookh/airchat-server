@@ -26,8 +26,17 @@ block content
 							p.mont
 								|	{{notice.body}}
 							.footer-copyright
-								p.mont
-									|	Posted by: {{notice.from.name}}  |  {{notice.date}}
+								.row
+									.col.s6
+										p.mont(style="text-align:left")
+											|	Posted by: {{notice.from.name}}  |  {{notice.date}}
+									.col.s6
+										p(style="text-align:right;margin:0px")
+											//- a.btn(@click="deleteNotice(notice._id)")
+												i.material-icons.center.red-text.circle delete
+											a.btn-floating.btn-large.waves-effect.waves-light.right(@click="deleteNotice(notice._id)")(style="background:#5777F7")
+												i.material-icons delete
+										
 
 	a.btn-floating.btn-large.waves-effect.waves-light.right(href="/notices/create",style="background:#5777F7")
 		i.material-icons add
