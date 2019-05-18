@@ -1,17 +1,42 @@
 extend ../components/layout.pug
 
 block styles
+	link(href='https://fonts.googleapis.com/css?family=Quicksand', rel='stylesheet')
+	link(rel="stylesheet", href="/css/organization.css")
 
 block title
-	title Bulletin Board | AirChat
+
 
 block content
-
 	section#noticeForm
-		.container
-			h4.center Create post
+		.row(style="background-image:url('/images/backorg.jpg');height:90vh")
+			.col.s12.l4.push-l4
+				.card-panel.z-depth-4(style="margin-top:5%;border-radius:35px;")
 
-			
+					h3.light.center Airchat
+					h5.light.center Create Notice
+
+					.row
+						form.col.s12(action='/api/notice/create',method="POST")
+							.row
+								.input-field.col.s12
+									select.browser-default#from(name='from')
+										option(v-for="user in users" v-bind:value="user._id") {{ user.name }}                            
+
+								.input-field.col.s12
+									input#title.validate(type='text' name='title')
+									label(for='title') Post Title
+
+								.input-field.col.s12
+									textarea#body.materialize-textarea(name='body')
+									label(for='body') Post Body
+
+								.col.s12.center
+									button.btn.waves-effect.waves-light.bg-secondary.curvy(type='submit', name='action') Submit
+		//- .container
+			h4.center Create Notice
+
+
 			form.row(action='/api/notice/create',method="POST")
 
 				.input-field.col.s12
@@ -33,4 +58,7 @@ block content
 
 block scripts
 	script(src="/js/init/bulletin.create.js")
+
+
+
 
